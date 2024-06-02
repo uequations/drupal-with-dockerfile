@@ -1,0 +1,42 @@
+label[for="edit-tarapro"] {
+	width: 100%;
+	text-align: center;
+}
+.settings-form-title {
+	background-color: #d2efe8;
+	padding: 1.5rem;
+	margin: 0 auto;
+}
+/* fieldset */
+.fieldset__label {
+	background-color: #eef4fb;
+}
+fieldset.set-default-fieldset,
+details.set-default-fieldset {
+	background-color: #ffeaa7;
+}
+fieldset.info-fieldset,
+details.info-fieldset {
+	background-color: #bbd9ff;
+	border: 1px solid #2e86de;
+}
+mark {
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+li {
+	padding: 6px 0;
+}
+.color-form {
+  max-width: 100%;
+}
+.color-palette {
+  display: flex;
+  width: calc(100% - 200px);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.color-form .form-item {
+  flex: 1 0 400px;
+  margin: 0;
+}

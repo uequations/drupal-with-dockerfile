@@ -1,0 +1,121 @@
+# Global stylings, css. These will be loaded on every pages.
+global-styling:
+  version: VERSION
+  css:
+    component:
+      css/animate.css: {}
+      css/slider.css: {}
+    theme:
+      css/style.css: {}
+  js:
+    js/slider.js: {}
+    js/viewportchecker.js: {}
+    js/cookiealert.js: {}
+    js/tarapro.js: {}
+  dependencies:
+    - core/jquery
+
+# Google Fonts from CDN
+googlefontscdn:
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Open+Sans|Roboto: { type: external }
+
+# Google Fonts from local
+googlefontslocal:
+  css:
+    theme:
+      css/font.css: {}
+
+# Book
+book:
+  version: VERSION
+  css:
+    component:
+      css/book.css: {}
+
+# FontAwesome 4
+fontawesome4:
+  version: 4.7
+  css:
+    component:
+      css/fontawesome4.css: {}
+
+# FontAwesome 5
+fontawesome5:
+  version: 5.15.4
+  css:
+    component:
+      css/fontawesome5.css: {weight: -10}
+
+# FontAwesome 6
+fontawesome6:
+  version: 6.5.1
+  css:
+    component:
+      css/fontawesome6.css: {weight: -10}
+
+# Bootstrap Icons
+bootstrap-icons:
+  version: 1.10.5
+  css:
+    component:
+      css/bootstrap-icons.css: {}
+
+# iconmonstr font icons
+iconmonstr:
+  version: 1.3.0
+  css:
+    component:
+      css/iconmonstr.css: {}
+
+# Google Material outlined Icons
+material-outlined:
+  version: 4.0.0
+  css:
+    component:
+      css/material-outlined.css: {}
+
+# Google Material filled Icons
+material-filled:
+  version: 4.0.0
+  css:
+    component:
+      css/material-filled.css: {}
+
+# Google Material round Icons
+material-round:
+  version: 4.0.0
+  css:
+    component:
+      css/material-round.css: {}
+
+# Google Material sharp Icons
+material-sharp:
+  version: 4.0.0
+  css:
+    component:
+      css/material-sharp.css: {}
+
+# Google Material tone Icons
+material-tone:
+  version: 4.0.0
+  css:
+    component:
+      css/material-tone.css: {}
+
+# Theme settings
+theme-settings:
+  version: VERSION
+  css:
+    theme:
+      css/theme-settings.css: {}
+
+# Load jquery in head
+hjs:
+  version: VERSION
+  header: true
+  js:
+    js/blank.js: {}
+  dependencies:
+    - core/jquery

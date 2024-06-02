@@ -1,0 +1,323 @@
+/* color sceme
+---------------------*/
+.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+.black h1,
+.black h2,
+.black h3,
+.black h4,
+.black h5 {
+  color: #ffffff;
+}
+.black a {
+  color: var(--light);
+  text-decoration: underline;
+}
+.white {
+  background-color: #ffffff;
+  color: var(--text-color);
+}
+/* Buttons
+------------------------ */
+.button.secondary {
+  background-color: var(--color-secondary);
+}
+.button.dark {
+  background-color: var(--dark);
+}
+.button.light {
+  background-color: var(--light);
+  color:  var(--dark);
+}
+.button.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+.button.black:hover {
+  background-color: transparent;
+  color: #000000;
+}
+.button.info {
+  background-color: #c8dbf1;
+  color: #114785;
+}
+.button.success {
+  background-color: #d2f3df;
+  color: #159347;
+}
+.button.warning {
+  background-color: #f1e6be;
+  color: #9e540f;
+}
+.button.danger {
+  background-color: #eacdcd;
+  color: #920f0f;
+}
+.button.outline {
+  background-color: transparent;
+  color: var(--dark);
+  border-color: var(--bold-color);
+  border-radius: 0;
+}
+.button.outline:hover {
+  background-color: #ffffff;
+  color: var(--bold-color);
+}
+.button.animate {
+  position: relative;
+  background-color: transparent;
+  color: var(--dark);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  transition: all 0.3s linear;
+}
+.button.animate:hover {
+  color: var(--bold-color);
+  padding: 0;
+  border: 0;
+}
+.button.animate::before {
+  position: absolute;
+  content: '';
+  background-color: var(--dark);
+  left: 0;
+  bottom: 0;
+  width: 30%;
+  height: 2px;
+  transition: width 0.3s linear;
+}
+.button.animate:hover::before {
+  width: 100%;
+}
+.button.secondary:hover,
+.button.dark:hover,
+.button.light:hover,
+.button.info:hover,
+.button.success:hover,
+.button.warning:hover,
+.button.danger:hover {
+  background-color: transparent;
+}
+/* Shortcodes - Box
+------------------------ */
+.box.primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+.box.primary h1,
+.box.primary h2,
+.box.primary h3,
+.box.primary h4 {
+  color: #ffffff;
+}
+.box.primary a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.box.secondary {
+  background-color: var(--color-secondary);
+}
+.box.secondary a {
+  color: #ffffff;
+}
+.box.dark {
+  background-color: var(--dark);
+  color: var(--light);
+}
+.box.light {
+  background-color: var(--light);
+}
+.box.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+.box.info {
+  background-color: #eef4fb;
+}
+.box.success {
+  background-color: #eeffeb;
+}
+.box.warning {
+  background-color: #fff7e7;
+}
+.box.danger {
+  background-color: #ffeeee;
+}
+/* Card
+--------------------------------- */
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+}
+.card-title {
+  background-color: var(--dark);
+  color: #ffffff;
+  padding: 0.5rem;
+}
+.card-content {
+  background-color: #ffffff;
+  color: var(--text-color);
+  padding: 1rem;
+}
+.card-content p:last-of-type {
+  margin: 0;
+}
+.card .card-content {
+  color: var(--text-color);
+}
+.card.primary .card-title {
+  background-color: var(--color-primary);
+}
+.card.secondary .card-title {
+  background-color: var(--color-secondary);
+}
+.card.light .card-title {
+  background-color: var(--light);
+  color: var(--color-heading);
+}
+.card.black .card-title {
+  background-color: #000000;
+}
+.card.black .card-content {
+  background-color: #565a67;
+  color: #ffffff;
+}
+.card.white .card-title {
+  background-color: #ffffff;
+  color: var(--color-heading);
+  border-bottom: 2px solid var(--border);
+}
+.card.info .card-title {
+  background-color: #114785;
+}
+.card.info .card-content {
+  background-color: #eef4fb;
+}
+.card.success .card-title {
+  background-color: #64a43d;
+}
+.card.success .card-content {
+  background-color: #eeffeb;
+}
+.card.warning .card-title {
+  background-color: #c26a17;
+}
+.card.warning .card-content {
+  background-color: #fff7e7;
+}
+.card.danger .card-title {
+  background-color: #920f0f;
+}
+.card.danger .card-content {
+  background-color: #ffeeee;
+}
+/* EU Cookie Compliance module */
+div#sliding-popup, div#sliding-popup .eu-cookie-withdraw-banner, .eu-cookie-withdraw-tab {
+  background-color: #ffffff;
+  box-shadow: 0 0 4px 1px var(--color-secondary);
+  left: 0;
+}
+#sliding-popup {
+  padding: 2rem;
+  max-width: 600px;
+}
+#sliding-popup .popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.eu-cookie-compliance-content {
+  max-width: 100%;
+}
+.eu-cookie-compliance-message {
+  float: none;
+  margin: 0;
+  max-width: 100%;
+}
+#sliding-popup div,
+#sliding-popup h2 {
+  color: var(--bold-color);
+}
+#sliding-popup h2 {
+  font-size: 1.3rem;
+}
+#sliding-popup p {
+  display: block;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+.eu-cookie-compliance-message button {
+  background-color: transparent;
+  color: var(--color-primary);
+  margin: 0;
+  padding: 0;
+}
+.eu-cookie-compliance-message button:hover {
+  background-color: transparent;
+  color: var(--bold-color);
+}
+.eu-cookie-compliance-buttons {
+  display: flex;
+  gap: 1rem;
+  float: none;
+  margin: 0;
+  max-width: 100%;
+}
+.eu-cookie-compliance-buttons .button {
+  background-color: transparent;
+  background-image: none;
+  color: var(--color-primary);
+  font-weight: 400;
+  margin: 0;
+  padding: 8px 1rem;
+  border: 2px solid var(--dark);
+  text-shadow: none;
+  box-shadow: none;
+}
+.eu-cookie-compliance-buttons .button:hover {
+  background-color: var(--dark);
+  color: #ffffff;
+}
+/* Clearing
+--------------------------------- */
+.clear {
+  clear: both;
+  width: 100%;
+}
+#highlighted::before,
+#last-section::before {
+  content: "";
+  display: table;
+  clear: both;
+}
+#highlighted::after,
+#last-section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#main-wrapper::before,
+#homepage-content-wrapper::before,
+#main-wrapper::after,
+#homepage-content-wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.page-title-wrap::before,
+.page-title-wrap::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#node-comment::before,
+#node-comment::after {
+  content: "";
+  display: table;
+  clear: both;
+}
