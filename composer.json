@@ -19,6 +19,10 @@
         "drupal/core-composer-scaffold": "^10.2",
         "drupal/core-project-message": "^10.2",
         "drupal/core-recommended": "^10.2",
+        "drupal/jsonapi_menu_items": "^1.2",
+        "drupal/jsonapi_resources": "^1.0@beta",
+        "drupal/jsonapi_views": "^1.1",
+        "drupal/next": "^1.6",
         "drush/drush": "^12.5"
     },
     "conflict": {
@@ -33,7 +37,8 @@
             "drupal/core-project-message": true,
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "cweagans/composer-patches": true
         },
         "sort-packages": true
     },
