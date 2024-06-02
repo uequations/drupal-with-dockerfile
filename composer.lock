@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c01e37574e382e1d35d27c470f2544f",
+    "content-hash": "3c822c8fd1b0799967a74b8d6da1a508",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2091,6 +2091,55 @@
                 "source": "https://cgit.drupalcode.org/pathauto",
                 "issues": "https://www.drupal.org/project/issues/pathauto",
                 "documentation": "https://www.drupal.org/docs/8/modules/pathauto"
+            }
+        },
+        {
+            "name": "drupal/porto_theme",
+            "version": "1.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/porto_theme.git",
+                "reference": "1.5.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/porto_theme-1.5.4.zip",
+                "reference": "1.5.4",
+                "shasum": "339df3f09b975b69b91ae4346f3962cff2f80b07"
+            },
+            "require": {
+                "drupal/core": "^9.3 || ^10"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "drupal": {
+                    "version": "1.5.4",
+                    "datestamp": "1713536713",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Minh Hoang (@hoangd)",
+                    "homepage": "https://www.drupal.org/u/hoangd",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Porto Theme is now available on Drupal ^9 || ^10. Porto is a professional and multipurpose Drupal theme for any business or portfolio website. It’s fully responsive design ready to look stunning on any device.",
+            "homepage": "https://www.drupal.org/project/porto_theme",
+            "keywords": [
+                "Drupal Port Theme"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/porto_theme",
+                "issues": "https://www.drupal.org/project/issues/porto_theme"
             }
         },
         {
