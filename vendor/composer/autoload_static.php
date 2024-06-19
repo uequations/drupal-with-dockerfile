@@ -140,6 +140,7 @@ class ComposerStaticInit707f7590d632e07d7add8405a30a9cb8
         'D' => 
         array (
             'Drush\\' => 6,
+            'Drupal\\redis\\' => 13,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
             'Drupal\\Composer\\Plugin\\ProjectMessage\\' => 38,
@@ -445,6 +446,10 @@ class ComposerStaticInit707f7590d632e07d7add8405a30a9cb8
         'Drush\\' => 
         array (
             0 => __DIR__ . '/..' . '/drush/drush/src',
+        ),
+        'Drupal\\redis\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/redis/src',
         ),
         'Drupal\\Core\\' => 
         array (
