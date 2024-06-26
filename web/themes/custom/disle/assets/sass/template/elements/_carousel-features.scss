@@ -1,0 +1,511 @@
+.feature-one{
+   &__single{
+      position: relative;
+      background: #fff;
+      max-width: 500px;
+      margin: 0 auto 60px;
+   }
+   &__content{
+      position: relative;
+      box-shadow: 0 50px 50px rgba(0, 0, 0, 0.07);
+      &:before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 4px;
+         background: $theme-color;
+         z-index: 2;
+         transition: all 0.5s ease;
+      }
+   }
+   &__image{
+      position: relative;
+      overflow: hidden;
+      height: 185px;
+      &:before {
+         position: absolute;
+         left: 0;
+         top: 0;
+         height: 100%;
+         width: 100%;
+         background: linear-gradient(to top, #fff, transparent);
+         z-index: 2;
+         content: "";
+      }
+      img{ 
+         position: absolute;
+         width: 100%;
+         height: 100%;
+         -o-object-fit: cover;
+         object-fit: cover;
+         transition: all 300ms ease;
+      }
+   }
+   &__title{
+      letter-spacing: -0.8px;
+      font-size: 20px;
+      margin-top: 0;
+   }
+   
+   &__icon{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      background-color: $theme-color;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 32px;
+      color: #fff;
+      border: 12px solid #fff;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.01);
+      z-index: 99;
+      margin: 0 auto -60px;
+      transition: all 300ms ease;
+   }
+   &__desc{
+      margin-bottom: 20px;
+   }
+   &__action{
+      margin-top: 30px;
+   }
+   &__content-inner{
+      text-align: center;
+      position: relative;
+      width: 100%;
+      padding: 0 50px 30px;
+      margin-top: -45px;
+      z-index: 4;
+      @media (max-width: 1024px){
+         padding-left: 30px;
+         padding-right: 30px;
+      }
+   }
+   &__overlay-link{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 21;
+   }
+   &__single:hover{
+      .feature-one{
+         &__icon{
+           background: $theme-color-second;
+         }
+         &__image img{
+            transform: scale(1.1);
+         }
+      }
+   }
+}
+.feature-two{
+   &__single{
+	  position: relative;
+     background: $white;
+      max-width: 500px;
+      margin: 0 auto;
+   }
+   &__content{
+   }
+   &__image{
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 40%;
+      &:before {
+         position: absolute;
+         left: 0;
+         top: 0;
+         height: 100%;
+         width: 100%;
+         background-color: $theme-color-second;
+         opacity: 0.8;
+         content: "";
+      }
+      &:after {
+         position: absolute;
+         left: 0;
+         top: 0;
+         height: 100%;
+         width: 100%;
+         background: linear-gradient(to top, $black, transparent);
+         opacity: 1;
+         content: "";
+      }
+      img{ 
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+      @media(max-width: 480px){
+         padding-bottom: 50%;
+      }
+   }
+   &__title{
+   	letter-spacing: 1.2px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 0;
+      color: $theme-color;
+      text-transform: uppercase;
+   }
+   
+   &__icon{
+      font-size: 32px;
+   }
+   &__desc{
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.29;
+      letter-spacing: -1.12px;
+      color: $white;
+      @media(max-width: 480px){
+         font-size: 22px;
+         letter-spacing: 0;
+      }
+   }
+   &__action{
+      margin-top: 30px;
+   }
+   &__content-inner{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto!important;
+      padding: 0 50px 40px;
+      @media(max-width: 1024px){
+         padding: 0 30px 30px;
+      }
+   }
+   &__overlay-link{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 21;
+   }
+   &__single:hover{
+      .feature-two{
+         &__icon{
+           
+         }
+         &__image img{
+            
+         }
+      }
+   }
+}
+
+.feature-three{
+   &__single{
+      background: $white;
+      position: relative;
+      transition: all 300ms ease;
+      box-shadow: 0 10px 60px rgba(0, 0, 0, 0.07);
+      margin-bottom: 30px;
+   }
+   &__content{
+      position: relative;
+      padding: 30px;
+      &:before {
+         position: absolute;
+         left: 0;
+         top: 0;
+         height: 100%;
+         width: 100%;
+         background-image: url("#{$base-theme-image-path}/bg-service.png");
+         background-position: right bottom;
+         background-repeat: no-repeat;
+         content: "";
+         transition: all 100ms ease;
+      }
+   }
+   &__icon{
+      margin: 0 0 15px;
+      font-size: 62px;
+      color: $theme-color;
+      line-height: 1;
+      position: relative;
+   }
+   &__content-inner{
+      position: relative;
+   }
+   &__title{
+      font-size: 20px;
+      letter-spacing: -0.8px;
+      margin-bottom: 0;
+      transition: all 300ms ease;
+   }
+   &__desc{
+      transition: all 500ms ease;
+   }
+   &__action{
+      a{
+         font-size: 12px;
+         font-weight: 500;
+         letter-spacing: 1.2px;
+         padding: 10px 20px;
+      }
+   }
+   &__link{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      @include size(100%, 100%);
+   }
+   &__single{
+      &:hover, &:focus, &:active{
+         background: $theme-color-second;
+         .feature-three{
+            &__content:before{
+               opacity: 0.1;
+               transition: all 100ms ease;
+            }
+            &__title{
+               color: $white;
+            }
+            &__desc{
+               color: $white;
+            }
+         }
+      }
+   }
+}
+.feature-four{
+   &__single{
+     position: relative;
+      overflow: hidden;
+      //max-width: 762px;
+      margin: 0 auto;
+   }
+   &__wrap{
+      @media (min-width: 1200px){
+         display: flex;
+      }
+   }
+   &__image{
+      position: relative;
+      @media (min-width: 1200px){
+         order: 2;
+         flex: 0 0 63%;
+         margin-left: 20px;
+      }
+      @media (max-width: 1199px){
+         max-height: 230px;
+         overflow: hidden;
+      }
+      img{
+         height: 100%;
+         width: 100%;
+         object-fit: cover;
+      }
+   }
+   &__icon{
+      font-size: 62px;
+      line-height: 1;
+      color: $white;
+      display: block;
+      margin-bottom: 20px;
+   }
+   &__title{
+      font-size: 30px;
+      letter-spacing: -1.2px;
+      color: $white;
+      z-index: 11;
+      transition: all 0.35s;
+      @media (max-width: 1199px){
+         font-size: 22px;
+         letter-spacing: -0.5px;
+      }
+   }
+   &__content{
+      background: $theme-color;
+      @media (min-width: 1200px){
+         order: 1;
+         flex: 0 0 37%;
+         display: flex;
+         align-items: center;
+      }
+      padding: 40px;
+      @media (max-width: 1024px){
+         padding: 30px;
+      }
+   }
+   &__content-inner{
+
+   }
+   &__desc{
+      color: $white;
+   }
+   &__action{
+      margin-top: 60px;
+      a{
+         font-size: 12px;
+         font-weight: 500;
+         letter-spacing: 1.2px;
+         padding: 10px 20px;
+      }
+      @media (max-width: 1199px){
+         margin-top: 30px;
+      }
+   }
+   &__overlay-link{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 21;
+   }
+   &__single:hover{
+      .feature-four{
+         &__icon{
+            animation: beat 1.5s ease 0s infinite;
+         }
+      }
+   }
+}
+.feature-five{
+   &__single{
+      position: relative;
+      overflow: hidden;
+   }
+   &__wrap{
+   }
+   &__image{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transition: all 10s;
+      img{
+         position: absolute;
+         height: 100%;
+         width: 100%;
+         -o-object-fit: cover;
+         object-fit: cover;
+         transform: translate(-50%, -50%);
+         top: 50%;
+         left: 50%;
+      }
+      &:before{
+         content: "";
+         position: absolute;
+         background: $theme-color;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: 1;
+         opacity: 0.9;
+      }
+   }
+   &__icon{
+      width: 87px;
+      height: 87px;
+      line-height: 90px;
+      font-size: 28px;
+      display: inline-block;
+      background: $theme-color-second;
+      color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
+      margin-bottom: 30px;
+   }
+   &__title{
+      font-size: 30px;
+      color: $white;
+      text-transform: uppercase;
+      transition: all 0.35s;
+      margin-bottom: 30px;
+      @media (max-width: 1199px){
+         font-size: 22px;
+      }
+   }
+   &__content{
+      min-height: 400px;
+      max-width: 280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 15px 45px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+   }
+   &__content-inner{
+
+   }
+   &__desc{
+      color: $white;
+      font-size: 20px;
+      span{
+         font-size: 12px;
+         text-transform: uppercase;
+         letter-spacing: 1.2px;
+      }
+   }
+   &__action{
+      margin-top: 60px;
+      a{
+         font-size: 12px;
+         font-weight: 500;
+         letter-spacing: 1.2px;
+         padding: 10px 20px;
+      }
+      @media (max-width: 1199px){
+         margin-top: 30px;
+      }
+   }
+   &__overlay-link{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 21;
+   }
+   &__single:hover{
+      .feature-five{
+         &__icon{
+            animation: beat 1.5s ease 0s infinite;
+         }
+      }
+   }
+}
+.owl-carousel .owl-item.center{
+   .feature-one{
+      &__icon{
+        background: $theme-color-second;
+      }
+      &__image img{
+         transform: scale(1.1);
+      }
+   }
+   .feature-three{
+      &__wrap{
+         transform: translateY(-10px);
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+      }
+      &__content-inner{
+         opacity: 1;
+         visibility: visible;
+      }
+      &__action{
+         right: 40px;
+      }
+   }
+}
+
+
+

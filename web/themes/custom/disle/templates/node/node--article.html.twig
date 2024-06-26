@@ -1,0 +1,111 @@
+{%
+  set classes = [
+    'node',
+    'node-detail',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+
+<!-- Start Display article for teaser page -->
+{% if view_mode == 'teaser' %} 
+  <div class="post-one__single">
+    <div class="post-one__image">
+      {{ content.field_image }}
+      <div class="post-one__created"> 
+        <span class="date">{{ node.getCreatedTime()|date("d M, Y") }}</span>
+      </div>
+    </div>
+    <div class="post-one__content">
+        <div class="post-one__content-inner">
+          <div class="post-one__info">
+            <span class="post-one__author"><i class="fas fa-user-circle"></i>{{ 'by '|t }}{{ author_name }}</span>
+          </div>
+          <h3 class="post-one__title"> <a href="{{ url }}" rel="bookmark">{{ label }}</a> </h3> 
+          <div class="post-one__desc">{{ content.body }}</div>  
+          <div class="post-one__meta">
+            <a class="post-one__button" href="{{ url }}"><i class="fa fa-long-arrow-alt-right"></i>{{ 'More'|t }}</a>
+            <span class="post-one__comment"><i class="fas fa-comments"></i>{{ comment_count }} {{ 'Comments'|t }}</span>
+          </div>
+        </div>      
+    </div>
+  </div>
+
+{% elseif view_mode == 'teaser_2' %} 
+  <div class="post-two__single">
+    <div class="post-two__image">
+      {{ content.field_image }}
+    </div>
+    <div class="post-two__content">
+      <div class="post-two__created"> 
+        <span class="date">{{ node.getCreatedTime()|date("d M, Y") }}</span>
+      </div>
+      <div class="post-two__content-inner">
+        <div class="post-two__meta">
+          <span class="post-two__comment"><i class="fas fa-comments"></i>{{ comment_count }} {{ 'Comments'|t }}</span>
+        </div>
+        <h3 class="post-two__title"> <a href="{{ url }}" rel="bookmark">{{ label }}</a> </h3> 
+      </div>     
+    </div>
+  </div>
+
+<!-- End Display article for teaser page -->
+{% else %}
+<!-- Start Display article for detail page -->
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="post-block post-detail">
+    <div class="post-thumbnail post-{{ post_format }}">
+      {% if post_format == 'video' or post_format == 'audio' and gva_iframe %}
+        {{ gva_iframe|raw }}
+      {% elseif post_format == 'gallery' and content.field_post_gallery %}
+        {{ content.field_post_gallery }}
+      {% else %}
+        {{ content.field_image }}
+      {% endif %} 
+       <div class="post-created"> 
+        <span class="date">{{ node.getCreatedTime()|date("d M, Y") }}</span>
+      </div>
+    </div>
+
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-author"><i class="fas fa-user-circle"></i>{{ author_name }}</span>
+        <span class="post-comment"><i class="fas fa-comments"></i>{{ comment_count }} {{ 'Comments'|t }}</span>
+      </div>
+      {{ title_prefix }}
+         <h1{{ title_attributes.addClass('post-title') }}>{{ label }}</h1>
+      {{ title_suffix }}         
+      
+      
+      {% if display_submitted %}
+        <div class="node__meta hidden">
+          {{ author_picture }}
+          <span{{ author_attributes }}>
+            {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+          </span>
+          {{ metadata }}
+        </div>
+      {% endif %}
+
+      <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+        {{ content|without('field_image','field_post_category', 'field_post_format', 'field_post_type', 'field_post_embed', 'field_post_gallery', 'comment') }}
+      </div>
+      {% if content.comment %}
+        <div id="node-single-comment">
+          {{ content.comment }}
+        </div>
+      {% endif %}  
+
+    </div>
+
+  </div>
+
+</article>
+
+<!-- End Display article for detail page -->
+{% endif %}

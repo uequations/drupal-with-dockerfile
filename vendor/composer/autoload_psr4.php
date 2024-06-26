@@ -59,6 +59,8 @@ return array(
     'Peast\\' => array($vendorDir . '/mck89/peast/lib/Peast'),
     'OpenIDConnectServer\\' => array($vendorDir . '/steverhoades/oauth2-openid-connect-server/src'),
     'Masterminds\\' => array($vendorDir . '/masterminds/html5/src'),
+    'Mailchimp\\http\\' => array($vendorDir . '/thinkshout/mailchimp-api-php/src/http'),
+    'Mailchimp\\' => array($vendorDir . '/thinkshout/mailchimp-api-php/src'),
     'League\\Uri\\' => array($vendorDir . '/league/uri', $vendorDir . '/league/uri-interfaces'),
     'League\\OAuth2\\Server\\' => array($vendorDir . '/league/oauth2-server/src'),
     'League\\Event\\' => array($vendorDir . '/league/event/src'),

@@ -1,0 +1,240 @@
+.milestone-one{
+   &__single{
+      text-align: center;
+      display: block;
+      width: 100%;
+      margin-bottom: 30px;
+   }
+   &__icon{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 135px;
+      width: 122px;
+      background-image: url("#{$base-theme-image-path}/bg-icon-counter.png");
+      font-size: 52px;
+      line-height: 1;
+      color: $theme-color;
+      margin: 0 auto 20px;      
+      .icon{
+         transition: all 300ms linear;
+      }
+   }
+   &__content{
+      display: block;
+      text-align: center;
+      float: none;
+      width: 100%;
+   }
+   &__number-inner{
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -1.44px;
+      display: inline-flex;
+      color: $theme-color-second;
+      .symbol{
+         
+      }
+   }
+   &__text{
+      font-size: 18px;
+      font-weight: 500;
+      color: $body-color;
+      margin: 0;
+      margin-top: 10px;
+      transition: all 300ms ease;
+   } 
+   &__single{
+      &.text-light{
+         .milestone-one__icon{
+            height: 140px;
+            width: 130px;
+            background-image: url("#{$base-theme-image-path}/bg-icon-counter-white.png");
+         }
+         .milestone-one__number-inner{
+            color: $white;
+         }
+         .milestone-one__text{
+            color: rgba(255, 255, 255, 0.5);
+         }
+         &:hover{
+            .milestone-one__text{
+               color: rgba(255, 255, 255, 1);
+            }
+         }
+         &.style-special{
+            @media(max-width: 991px){
+               .milestone-one__number-inner{
+                  color: $theme-color;
+               }
+               .milestone-one__text{
+                  color: $theme-color;
+               }
+            }
+         }
+      }
+      &:hover{
+         .milestone-one{
+            &__icon .icon{
+               transform: scale(-1) rotate(180deg);
+            }
+         }
+      }
+   }
+}
+
+.milestone-two{
+   &__single{
+      padding: 15px;
+      box-shadow: 0px 10px 60px 0 rgba(0, 0, 0, 0.05);
+      background-color: #f4f4f4;
+      max-width: 280px;
+      text-align: center;
+      margin-top: 43px;
+      @media (max-width: 480px){
+         max-width: 260px;
+      }
+   }
+   &__content{
+      border: 2px solid $theme-color;
+      padding: 35px 15px;
+   }
+   &__icon{
+      background: url("#{$base-theme-image-path}/bg-counter-primary.png") no-repeat; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: -95px auto 20px;
+      width: 109px;
+      height: 120px;
+      position: relative;
+      .icon{
+         color: $white;
+         font-size: 64px;
+         line-height: 1;
+      }
+   }
+   
+   &__number-inner{
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 40px;
+      margin: 0 0 10px;
+      color: $theme-color-second;
+      display: inline-flex;
+   }
+   &__text{
+      font-size: 18px;
+      color: $body-color;
+      margin: 0;
+      font-weight: 500;
+   }
+   &__single{
+      &.text-light{
+         .milestone-two{
+            &__number-inner{
+               color: $white;
+            }
+         }
+      }
+   }
+}
+
+.milestone-three{
+   &__single{
+      text-align: center;
+      display: block;
+      width: 100%;
+      margin-bottom: 30px;
+   }
+   &__wrap{
+      display: flex;
+   }
+   &__icon{
+      color: $theme-color; 
+      display: flex;
+      flex: 0 0 75px;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 15px;
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background: $bg-gray;
+      position: relative;
+      z-index: 1;
+      &:before{
+         position: absolute;
+         top: 0px;
+         left: 0px;
+         right: 0px;
+         bottom: 0px;
+         content: "";
+         border-radius: 50%;
+         background-color: $theme-color;
+         transform: scale(0);
+         transform-origin: center;
+         transform-style: preserve-3d;
+         transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.52);
+         z-index: -1;
+      }
+      .icon{
+         color: $theme-color;
+         font-size: 32px;
+         line-height: 1;
+         transform: scale(1) rotateY(0deg);
+         transition: all 500ms linear;
+      }
+   }
+   &__content{
+      display: block;
+      text-align: left;
+      float: none;
+      width: 100%;
+      margin-left: 20px;
+   }
+   &__number-inner{
+      font-size: 40px;
+      line-height: 40px;
+      margin: 0 0 2px;
+      color: $headings-color;
+   }
+   &__symbol{
+      position: relative;
+      top: -3px;
+      left: -5px;
+   }
+   &__text{
+      font-size: 16px;
+      margin: 0;
+      font-weight: 400;
+      line-height: 26px;
+      color: $body-color;
+   } 
+   &__single{
+      &:hover, &.active{
+         .milestone-three{
+            &__icon{
+               &:before{
+                  transform: scale(1);
+               }
+               .icon{
+                  color: $white;
+                  transform: scale(0.9) rotateY(360deg);
+               }
+            }
+         }
+      }
+   }
+   &__single{
+      &.text-light{
+         .milestone-three{
+            &__number-inner{
+               color: $white;
+            }
+         }
+      }
+   }
+}

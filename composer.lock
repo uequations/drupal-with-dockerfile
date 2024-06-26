@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1aef4525815ea456f9166034182c1cf2",
+    "content-hash": "1840c0cadd949be93733c00ff0af0041",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1256,6 +1256,235 @@
             "time": "2024-02-05T11:35:39+00:00"
         },
         {
+            "name": "drupal/admin_toolbar",
+            "version": "3.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/admin_toolbar.git",
+                "reference": "3.4.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-3.4.2.zip",
+                "reference": "3.4.2",
+                "shasum": "f5a008e5c73f5a11c6c8067c0ea6ebb76aa33854"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10"
+            },
+            "require-dev": {
+                "drupal/admin_toolbar_tools": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.4.2",
+                    "datestamp": "1696006195",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Wilfrid Roze (eme)",
+                    "homepage": "https://www.drupal.org/u/eme",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Romain Jarraud (romainj)",
+                    "homepage": "https://www.drupal.org/u/romainj",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Adrian Cid Almaguer (adriancid)",
+                    "homepage": "https://www.drupal.org/u/adriancid",
+                    "email": "adriancid@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Mohamed Anis Taktak (matio89)",
+                    "homepage": "https://www.drupal.org/u/matio89",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "matio89",
+                    "homepage": "https://www.drupal.org/user/2320090"
+                },
+                {
+                    "name": "Musa.thomas",
+                    "homepage": "https://www.drupal.org/user/1213824"
+                },
+                {
+                    "name": "romainj",
+                    "homepage": "https://www.drupal.org/user/370706"
+                }
+            ],
+            "description": "Provides a drop-down menu interface to the core Drupal Toolbar.",
+            "homepage": "http://drupal.org/project/admin_toolbar",
+            "keywords": [
+                "Drupal",
+                "Toolbar"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/admin_toolbar",
+                "issues": "https://www.drupal.org/project/issues/admin_toolbar"
+            }
+        },
+        {
+            "name": "drupal/block_class",
+            "version": "2.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/block_class.git",
+                "reference": "2.0.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/block_class-2.0.11.zip",
+                "reference": "2.0.11",
+                "shasum": "bd098ef0071b5baca1248c0deaa9bbedc0ddcaf4"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.11",
+                    "datestamp": "1672065313",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Todd Nienkerk",
+                    "homepage": "https://www.drupal.org/u/todd-nienkerk",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Renato Gonçalves (RenatoG)",
+                    "homepage": "https://www.drupal.org/u/RenatoG",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Neslee Canil Pinto",
+                    "homepage": "https://www.drupal.org/u/neslee-canil-pinto",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Aaron Stanush",
+                    "homepage": "https://www.drupal.org/u/aaron-stanush",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "David Suissa (DYdave)",
+                    "homepage": "https://www.drupal.org/u/DYdave",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Four Kitchens",
+                    "homepage": "https://www.drupal.org/user/358502",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "berenddeboer",
+                    "homepage": "https://www.drupal.org/u/berenddeboer",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "elliotttf",
+                    "homepage": "https://www.drupal.org/u/elliotttf",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Michal Minecki (mirzu)",
+                    "homepage": "https://www.drupal.org/u/mirzu",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Patrick Coffey (pcoffey)",
+                    "homepage": "https://www.drupal.org/u/pcoffey",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Taylor Smith (tsmith512)",
+                    "homepage": "https://www.drupal.org/u/tsmith512",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Allows assigning classes to Blocks.",
+            "homepage": "https://www.drupal.org/project/block_class",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/block_class",
+                "issues": "https://www.drupal.org/project/issues/block_class",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/config_update",
+            "version": "2.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/config_update.git",
+                "reference": "2.0.0-alpha3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_update-2.0.0-alpha3.zip",
+                "reference": "2.0.0-alpha3",
+                "shasum": "c35e81e8fb77efdff5ddca3a87116ea0c522a7e2"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-alpha3",
+                    "datestamp": "1683807608",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "codebymikey",
+                    "homepage": "https://www.drupal.org/user/3573206"
+                },
+                {
+                    "name": "Pasqualle",
+                    "homepage": "https://www.drupal.org/user/80733"
+                }
+            ],
+            "description": "Provides basic revert and update functionality for other modules.",
+            "homepage": "https://www.drupal.org/project/config_update",
+            "support": {
+                "source": "https://git.drupalcode.org/project/config_update"
+            }
+        },
+        {
             "name": "drupal/consumers",
             "version": "1.17.0",
             "source": {
@@ -1777,6 +2006,196 @@
             }
         },
         {
+            "name": "drupal/dropdown_language",
+            "version": "4.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/dropdown_language.git",
+                "reference": "4.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/dropdown_language-4.0.3.zip",
+                "reference": "4.0.3",
+                "shasum": "1c59a667f3215baa8bfa4ed9d77b17899377f2e7"
+            },
+            "require": {
+                "drupal/core": "^10",
+                "php": "^8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "4.0.3",
+                    "datestamp": "1679314009",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Scott Carpenter",
+                    "homepage": "https://www.drupal.org/user/291091",
+                    "email": "dropdown-language@goodscott.com"
+                },
+                {
+                    "name": "Grevil",
+                    "homepage": "https://www.drupal.org/user/3668491"
+                },
+                {
+                    "name": "SKAUGHT",
+                    "homepage": "https://www.drupal.org/user/297907"
+                }
+            ],
+            "description": "Dropdown Language Switcher. https://www.drupal.org/project/dropdown_language",
+            "homepage": "https://www.drupal.org/project/dropdown_language",
+            "support": {
+                "source": "https://git.drupalcode.org/project/dropdown_language"
+            }
+        },
+        {
+            "name": "drupal/features",
+            "version": "3.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/features.git",
+                "reference": "8.x-3.14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/features-8.x-3.14.zip",
+                "reference": "8.x-3.14",
+                "shasum": "fff0bb2d133c524ddb326422eba625c55585232c"
+            },
+            "require": {
+                "drupal/config_update": "^1.4 || ^2",
+                "drupal/core": "^9.4 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.14",
+                    "datestamp": "1702059191",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10 || ^11"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "donquixote",
+                    "homepage": "https://www.drupal.org/user/459338"
+                },
+                {
+                    "name": "e2thex",
+                    "homepage": "https://www.drupal.org/user/189123"
+                },
+                {
+                    "name": "febbraro",
+                    "homepage": "https://www.drupal.org/user/43670"
+                },
+                {
+                    "name": "flocondetoile",
+                    "homepage": "https://www.drupal.org/user/2006064"
+                },
+                {
+                    "name": "jmiccolis",
+                    "homepage": "https://www.drupal.org/user/31731"
+                },
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
+                    "name": "matthand",
+                    "homepage": "https://www.drupal.org/user/171527"
+                },
+                {
+                    "name": "mpotter",
+                    "homepage": "https://www.drupal.org/user/616192"
+                }
+            ],
+            "description": "Enables administrators to package configuration into modules",
+            "homepage": "https://www.drupal.org/project/features",
+            "support": {
+                "source": "https://git.drupalcode.org/project/features"
+            }
+        },
+        {
+            "name": "drupal/imce",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/imce.git",
+                "reference": "3.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/imce-3.1.0.zip",
+                "reference": "3.1.0",
+                "shasum": "6debb0a028d26ed80b9a424181ab4cb1ed2b5087"
+            },
+            "require": {
+                "drupal/core": "^9.3 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.1.0",
+                    "datestamp": "1717973688",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "See contributors",
+                    "homepage": "https://www.drupal.org/node/2841111/committers",
+                    "role": "Developer"
+                },
+                {
+                    "name": "ufku",
+                    "homepage": "https://www.drupal.org/user/9910"
+                }
+            ],
+            "description": "Provides a file manager supporting personal folders.",
+            "homepage": "https://drupal.org/project/imce",
+            "support": {
+                "source": "https://git.drupalcode.org/project/imce",
+                "issues": "https://www.drupal.org/project/issues/imce"
+            }
+        },
+        {
             "name": "drupal/jsonapi_menu_items",
             "version": "1.2.5",
             "source": {
@@ -1949,6 +2368,155 @@
             ],
             "support": {
                 "source": "https://git.drupalcode.org/project/jsonapi_views"
+            }
+        },
+        {
+            "name": "drupal/ludwig",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/ludwig.git",
+                "reference": "2.0.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ludwig-2.0.6.zip",
+                "reference": "2.0.6",
+                "shasum": "a52ad936633e2debc745882fa3c2b062da64cbd3"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.6",
+                    "datestamp": "1671906561",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "devad",
+                    "homepage": "https://www.drupal.org/user/2268520"
+                },
+                {
+                    "name": "jsacksick",
+                    "homepage": "https://www.drupal.org/user/972218"
+                }
+            ],
+            "description": "Provides a manual alternative to Composer.",
+            "homepage": "https://www.drupal.org/project/ludwig",
+            "support": {
+                "source": "https://git.drupalcode.org/project/ludwig"
+            }
+        },
+        {
+            "name": "drupal/mailchimp",
+            "version": "2.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/mailchimp.git",
+                "reference": "2.2.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/mailchimp-2.2.3.zip",
+                "reference": "2.2.3",
+                "shasum": "a8f1b7de05db41e493e14ebfa50feb8be14255f3"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9 || ^10",
+                "thinkshout/mailchimp-api-php": "^3"
+            },
+            "require-dev": {
+                "drupal/mailchimp_events": "*",
+                "drupal/mailchimp_lists": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.2.3",
+                    "datestamp": "1715883765",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "aprice42",
+                    "homepage": "https://www.drupal.org/user/369147"
+                },
+                {
+                    "name": "bdimaggio",
+                    "homepage": "https://www.drupal.org/user/70688"
+                },
+                {
+                    "name": "brendanthinkshout",
+                    "homepage": "https://www.drupal.org/user/3578399"
+                },
+                {
+                    "name": "gcb",
+                    "homepage": "https://www.drupal.org/user/1682976"
+                },
+                {
+                    "name": "kescoto-thinkshout",
+                    "homepage": "https://www.drupal.org/user/3664824"
+                },
+                {
+                    "name": "levelos",
+                    "homepage": "https://www.drupal.org/user/54135"
+                },
+                {
+                    "name": "mariacha1",
+                    "homepage": "https://www.drupal.org/user/2210776"
+                },
+                {
+                    "name": "maximumpotter",
+                    "homepage": "https://www.drupal.org/user/3653774"
+                },
+                {
+                    "name": "mshaver",
+                    "homepage": "https://www.drupal.org/user/39079"
+                },
+                {
+                    "name": "olivier.bouwman",
+                    "homepage": "https://www.drupal.org/user/2799483"
+                },
+                {
+                    "name": "tauno",
+                    "homepage": "https://www.drupal.org/user/105595"
+                },
+                {
+                    "name": "wxactly",
+                    "homepage": "https://www.drupal.org/user/3181097"
+                },
+                {
+                    "name": "xenophyle",
+                    "homepage": "https://www.drupal.org/user/664428"
+                }
+            ],
+            "description": "Mailchimp is an integration with the Mailchimp Mass email tool.",
+            "homepage": "http://drupal.org/project/mailchimp",
+            "support": {
+                "source": "https://git.drupalcode.org/project/mailchimp"
             }
         },
         {
@@ -2543,6 +3111,185 @@
             "homepage": "https://www.drupal.org/project/token",
             "support": {
                 "source": "https://git.drupalcode.org/project/token"
+            }
+        },
+        {
+            "name": "drupal/views_infinite_scroll",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_infinite_scroll.git",
+                "reference": "2.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_infinite_scroll-2.0.2.zip",
+                "reference": "2.0.2",
+                "shasum": "8b2b935d1e5d94d7ad068d099512d3b915efb41f"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.2",
+                    "datestamp": "1689001933",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Anybody",
+                    "homepage": "https://www.drupal.org/user/291091"
+                },
+                {
+                    "name": "Grevil",
+                    "homepage": "https://www.drupal.org/user/3668491"
+                },
+                {
+                    "name": "Honza Pobořil",
+                    "homepage": "https://www.drupal.org/user/123612"
+                },
+                {
+                    "name": "Neslee Canil Pinto",
+                    "homepage": "https://www.drupal.org/user/3580850"
+                },
+                {
+                    "name": "Remon",
+                    "homepage": "https://www.drupal.org/user/143827"
+                },
+                {
+                    "name": "Sam152",
+                    "homepage": "https://www.drupal.org/user/1485048"
+                },
+                {
+                    "name": "thomas.frobieter",
+                    "homepage": "https://www.drupal.org/user/409335"
+                }
+            ],
+            "description": "A pager which allows an infinite scroll effect for views.",
+            "homepage": "https://www.drupal.org/project/views_infinite_scroll",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_infinite_scroll"
+            }
+        },
+        {
+            "name": "drupal/webform",
+            "version": "6.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/webform.git",
+                "reference": "6.2.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/webform-6.2.3.zip",
+                "reference": "6.2.3",
+                "shasum": "b23b2746643ef11ee764ac420a02e2162d727930"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "drupal/address": "1.x-dev",
+                "drupal/bootstrap": "3.x-dev",
+                "drupal/captcha": "^1 || ^2",
+                "drupal/chosen": "3.0.x-dev",
+                "drupal/ckeditor": "1.0.x-dev",
+                "drupal/clientside_validation": "^3 || ^4",
+                "drupal/clientside_validation_jquery": "*",
+                "drupal/devel": "5.x-dev",
+                "drupal/entity": "1.x-dev",
+                "drupal/entity_print": "2.x-dev",
+                "drupal/group": "1.x-dev",
+                "drupal/hal": "1 - 2",
+                "drupal/jquery_ui": "1.x-dev",
+                "drupal/jquery_ui_checkboxradio": "2.x-dev",
+                "drupal/jquery_ui_datepicker": "2.x-dev",
+                "drupal/mailsystem": "4.x-dev",
+                "drupal/metatag": "1.x-dev",
+                "drupal/paragraphs": "1.x-dev",
+                "drupal/select2": "1.x-dev",
+                "drupal/smtp": "1.x-dev",
+                "drupal/styleguide": "^1 || ^2",
+                "drupal/telephone_validation": "2.x-dev",
+                "drupal/token": "1.x-dev",
+                "drupal/variationcache": "1.x-dev",
+                "drupal/webform_access": "*",
+                "drupal/webform_attachment": "*",
+                "drupal/webform_clientside_validation": "*",
+                "drupal/webform_devel": "*",
+                "drupal/webform_entity_print": "*",
+                "drupal/webform_node": "*",
+                "drupal/webform_options_limit": "*",
+                "drupal/webform_scheduled_email": "*",
+                "drupal/webform_share": "*",
+                "drupal/webform_ui": "*"
+            },
+            "suggest": {
+                "drupal/jquery_ui_checkboxradio": "Provides jQuery UI Checkboxradio library. Required by the Webform jQueryUI Buttons module. The Webform jQueryUI Buttons module is deprecated because jQueryUI is no longer maintained.",
+                "drupal/jquery_ui_datepicker": "Provides jQuery UI Datepicker library. Required to support datepickers. The Webform jQueryUI Datepicker module is deprecated because jQueryUI is no longer maintained."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "6.2.3",
+                    "datestamp": "1719431562",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": ">=9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Rockowitz (jrockowitz)",
+                    "homepage": "https://www.drupal.org/u/jrockowitz",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://www.drupal.org/node/7404/committers",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Liam Morland",
+                    "homepage": "https://www.drupal.org/user/493050"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                },
+                {
+                    "name": "torotil",
+                    "homepage": "https://www.drupal.org/user/865256"
+                }
+            ],
+            "description": "Enables the creation of webforms and questionnaires.",
+            "homepage": "https://drupal.org/project/webform",
+            "support": {
+                "source": "https://git.drupalcode.org/project/webform",
+                "issues": "https://www.drupal.org/project/issues/webform?version=8.x",
+                "docs": "https://www.drupal.org/docs/8/modules/webform",
+                "forum": "https://drupal.stackexchange.com/questions/tagged/webform"
             }
         },
         {
@@ -7854,6 +8601,50 @@
             "time": "2024-04-28T10:28:08+00:00"
         },
         {
+            "name": "thinkshout/mailchimp-api-php",
+            "version": "v3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thinkshout/mailchimp-api-php.git",
+                "reference": "466e4bd2a36ff052418cf2a24a611e91ac5c2929"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thinkshout/mailchimp-api-php/zipball/466e4bd2a36ff052418cf2a24a611e91ac5c2929",
+                "reference": "466e4bd2a36ff052418cf2a24a611e91ac5c2929",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.5.8|^7.4.5",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.2.2|^7.0|^8.0|^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mailchimp\\": "src/",
+                    "Mailchimp\\http\\": "src/http/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "PHP library for v3 of the MailChimp API",
+            "homepage": "https://github.com/thinkshout/mailchimp-api-php",
+            "keywords": [
+                "mail",
+                "mailchimp"
+            ],
+            "support": {
+                "issues": "https://github.com/thinkshout/mailchimp-api-php/issues",
+                "source": "https://github.com/thinkshout/mailchimp-api-php/tree/v3.0.1"
+            },
+            "time": "2023-12-08T18:46:31+00:00"
+        },
+        {
             "name": "twig/twig",
             "version": "v3.8.0",
             "source": {
@@ -7975,6 +8766,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "drupal/config_update": 15,
         "drupal/jsonapi_resources": 10
     },
     "prefer-stable": true,

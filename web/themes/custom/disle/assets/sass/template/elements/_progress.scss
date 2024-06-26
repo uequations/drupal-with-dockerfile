@@ -1,0 +1,48 @@
+.progress-one{
+	&__single{
+		margin-bottom: 25px;
+	}
+	&__label{
+		font-size: 18px;
+		color: $headings-color;
+		letter-spacing: -0.72px;
+  		margin-bottom: 5px;
+	}
+	&__content{
+		height: 7px;
+		border-radius: 20px;
+	}
+	&__bar{
+		height: 7px;
+		border-radius: 20px;
+	}
+	&__percentage{
+		top: -28px!important;
+	}
+	&__single{
+		&.style-2{
+			.progress-one__bar{
+				background: $theme-color-second!important;
+			}
+		}
+		&.style-3{
+			.progress-one__content{
+				background: rgba(255, 255, 255, 0.28)!important;
+			}
+			.progress-one__label{
+				color: $white;
+			}
+			.progress-one__bar{
+				background: rgba(255, 255, 255, 0.9)!important;
+			}
+			.progress-one__percentage{
+				color: $white;
+			}
+		}
+		&.style-4{
+			.progress-one__bar{
+				background: $black!important;
+			}
+		}
+	}
+}

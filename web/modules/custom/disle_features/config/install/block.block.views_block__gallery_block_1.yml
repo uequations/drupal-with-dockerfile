@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.gallery
+  module:
+    - gavias_hook_themer
+    - views
+  theme:
+    - disle_sub
+third_party_settings:
+  gavias_hook_themer:
+    classes: ''
+id: views_block__gallery_block_1
+theme: disle_sub
+region: sidebar_right
+weight: -12
+provider: null
+plugin: 'views_block:gallery-block_1'
+settings:
+  id: 'views_block:gallery-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: '4'
+visibility: {  }

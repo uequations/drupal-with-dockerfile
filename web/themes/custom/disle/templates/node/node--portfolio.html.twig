@@ -1,0 +1,100 @@
+{%
+  	set classes = [
+	 	'node',
+	 	'node--type-' ~ node.bundle|clean_class,
+	 	node.isPromoted() ? 'node--promoted',
+	 	node.isSticky() ? 'node--sticky',
+	 	not node.isPublished() ? 'node--unpublished',
+	 	view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+	 	'clearfix',
+  	]
+%}
+
+<!-- Start Display article for teaser page -->
+
+{% if view_mode == 'teaser' %}
+
+  	<div class="portfolio-one__single">      
+		 	<div class="portfolio-one__content">
+				<div class="portfolio-one__images">
+				  	{{ content.field_portfolio_images }}
+				  	<a class="portfolio-one__link" href="{{ url }}"></a>
+				</div>
+				<div class="portfolio-one__content-inner">
+					<div class="portfolio-one__arrow">
+						<a class="btn-arrow" href="{{ url }}"><i class="fa fa-long-arrow-alt-right"></i></a></div>
+				 	<div class="portfolio-one__category">{{content.field_portfolio_tags}}</div>
+				 	<h2 class="portfolio-one__title"> <a href="{{ url }}" rel="bookmark">{{ label }}</a> </h2>
+				</div>
+		 	</div>
+  	</div>
+
+{% elseif view_mode == 'teaser_2' %}
+  	{% set body %}{{content.body}}{% endset %}
+
+  	<div class="portfolio-two__single">      
+		 	<div class="portfolio-two__content">
+				<div class="portfolio-two__images">
+				  	{{ content.field_portfolio_images }}
+				  	<a class="portfolio-two__link" href="{{ url }}"></a>
+				  	<div class="portfolio-two__arrow">
+						<a class="btn-arrow" href="{{ url }}"><i class="fa fa-long-arrow-alt-right"></i></a></div>
+				</div>
+				<div class="portfolio-two__content-inner">
+				 	<div class="portfolio-two__category">{{content.field_portfolio_tags}}</div>
+				 	<h2 class="portfolio-two__title"> <a href="{{ url }}" rel="bookmark">{{ label }}</a> </h2>
+				</div>
+		 	</div>
+  	</div>
+
+{% elseif view_mode == 'teaser_3' %}
+	{% set body %}{{content.body}}{% endset %}
+ 	<div class="portfolio-three__single">      
+		<div class="portfolio-three__images">
+		  	{{ content.field_portfolio_images }}
+		</div>
+		<div class="portfolio-three__read-more"><a class="link" href="{{ url }}"><i class="fa fa-long-arrow-alt-right"></i></a></div>
+		<div class="portfolio-three__content">
+		 	<div class="portfolio-three__category">{{ content.field_portfolio_tags }}</div>
+			<h3 class="portfolio-three__title"><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>   
+		</div>
+ 	</div>
+
+{% elseif view_mode == 'teaser_4' %}
+	<div class="portfolio-v4">      
+	 	<div class="portfolio-content">
+			<div class="portfolio-images">
+			  	{{ content.field_portfolio_images }}
+			  	<a class="link" href="{{ url }}"><i class="fa fa-link"></i></a>
+			</div>
+			<div class="content-inner">
+			  	<div class="portfolio-information">
+				 	<h2 class="title"> <a href="{{ url }}" rel="bookmark">{{ label }}</a> </h2>
+				 	<div class="category">{{content.field_portfolio_tags}}</div>
+			  	</div>    
+			</div>
+	 	</div>
+  	</div>
+{% else %}
+
+<!-- Start Display article for detail page -->
+<article{{ attributes.addClass(classes) }}>
+  	<div class="header-title">
+	 	<div class="container">
+			<h2 class="title"><span>{{ label }}</span></h2>
+	 	</div>
+		</div>     
+	<div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+	  	{{ content|without('field_portfolio_images', 'field_portfolio_tags', 'comment') }}
+	</div>
+	{% if content.comment %}
+		<div id="node-single-comment">
+		 	<div id="comments">
+			 	{{ content.comment }}
+		  	</div>  
+		</div>
+	{% endif %}
+</article>
+
+<!-- End Display article for detail page -->
+{% endif %}

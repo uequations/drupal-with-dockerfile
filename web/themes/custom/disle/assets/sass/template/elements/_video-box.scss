@@ -1,0 +1,168 @@
+.video-box-one{
+  &__single{
+    width: 298px;
+    height: 285px;
+    position: relative;
+    @media (max-width: 1024px){
+      font-size: 22px;
+      width: 266px;
+      height: 270px;
+    }
+  }
+  &__image{
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__link{
+    margin-bottom: 20px;
+    display: block;
+    .icon{
+      @include size(63px, 63px);
+      @include border-radius(50%);
+      @include transition(all 0.35s);
+      font-size: 20px;
+      background: $theme-color;
+      color: $white;
+      display: inline-block;
+      text-align: center;
+      line-height: 63px;
+    }
+  }
+  &__content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    @media (max-width: 1024px){
+      padding: 30px;
+    }
+    @media (max-width: 767px){
+      padding-left: 45px;
+    }
+  }
+  &__desc{
+    letter-spacing: -1.04px;
+    font-size: 26px;
+    color: $white;
+    line-height: normal;
+    @media (max-width: 1024px){
+      font-size: 22px;
+    }
+  }
+}
+.gsc-video-box{
+    position: relative;
+    
+    &.style-2{
+      margin-bottom: 30px;
+      .image{
+        position: relative;
+        &:after{
+          content: '';
+          @include size(100%, 100%);
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          background: rgba(0, 0, 0, 0.2);
+        }
+        .popup-video{
+          display: inline-block;
+          font-size: 24px;
+          color: $white;
+          background: $theme-color;   
+          text-align: center;
+          position: relative;
+          @include transition(all 0.35s);
+          @include size(80px, 80px);
+          line-height: 82px;
+          position: absolute;
+          z-index: 11;
+          top: 50%;
+          left: 50%;
+          margin-left: -40px;
+          margin-top: -40px;
+          @include media-breakpoint-down(md){
+            @include size(60px, 60px);
+            line-height: 62px;
+            margin-left: -30px;
+            margin-top: -30px;
+          }
+          &::before{
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            border: 1px solid #fff;
+            opacity: 0;
+            @include animation(pulse-border-2 1.5s linear infinite);
+          }
+          &::after{
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            border: 1px solid #fff;
+            opacity: 0;
+            @include animation(pulse-border 1s linear infinite);
+          }
+          &:hover{
+            @include scale(0.9);
+          }
+        }
+      }
+      .video-content{
+        .link-video{
+          font-size: 12px;
+          font-weight: 400;
+          margin: 20px 0 0 35px;
+          position: relative;
+          float: left;
+          text-transform: capitalize;
+          &:after {
+            content: "";
+            position: absolute;
+            @include size(30px, 1px);
+            background-color: $black;
+            top: 14px;
+            left: -35px;
+          }
+          strong{
+            font-size: 14px;
+          }
+        }
+        .button-review {
+          float: right;
+          margin-top: 20px;
+          a{
+            @include transition(all 0.35s);
+            color: $black;
+            border: 1px solid $black;
+            padding: 4px 15px;
+            @include border-radius(30px);
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: capitalize;
+            letter-spacing: 2px;
+            &:hover{
+              color: $white;
+              background: $theme-color;
+              border-color: $theme-color;
+            }
+          }
+        }
+      }
+      .video-inner{
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+   }
+}

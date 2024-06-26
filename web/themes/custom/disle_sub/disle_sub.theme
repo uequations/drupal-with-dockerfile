@@ -1,0 +1,6 @@
+<?php
+
+function disle_sub_preprocess_html(&$variables) {
+  $variables['#attached']['library'][] = 'disle_sub/disle_sub.skin.default';
+
+}

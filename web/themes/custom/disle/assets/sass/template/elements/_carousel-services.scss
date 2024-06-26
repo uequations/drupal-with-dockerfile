@@ -1,0 +1,532 @@
+.service-one{
+	&__single{
+		
+	}
+	&__content{
+		position: relative;
+	    padding: 30px 30px 30px;
+	    background: #fff;
+	    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.07);
+	    transition: all 300ms ease;
+	    &:before {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    height: 100%;
+		    width: 100%;
+		    max-width: 0;
+		    background-color: $theme-color;
+		    content: "";
+		    transition: all 300ms ease;
+		    opacity: 0;
+		}
+		&:after {
+		    content: "";
+		    position: absolute;
+		    top: 50px;
+		    left: 0;
+		    width: 100%;
+		    height: 26px;
+		    background: -webkit-gradient(linear, left top, right top, from(#f4f4f4), to(transparent));
+		    background: linear-gradient(to right, #f4f4f4, transparent);
+		    transition: all 300ms ease;
+		    z-index: 1;
+		}
+	}
+	&__icon-inner{
+		position: relative;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 30px;
+	}
+	&__icon{
+		width: 66px;
+	    height: 66px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    color: #fff;
+	    background: $theme-color;
+	    font-size: 32px;
+	    border-radius: 50%;
+	    transition: all 300ms ease;
+	}
+	&__number{
+		color: #e6e6e6;
+	    font-size: 30px;
+	    font-weight: 300;
+	}
+	&__title{
+		font-size: 20px;
+		letter-spacing: -0.8px;
+		margin: 0;
+		transition: all 300ms ease;
+	}
+	&__content-inner{
+		position: relative;
+    	z-index: 2;
+	}
+	&__link{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 3;
+		@include size(100%, 100%);
+	}
+
+	&__single{
+		&:hover, &:focus, &:active{
+			.service-one{
+				&__icon{
+					color: $theme-color;
+					background: $white;
+				}
+				&__title{
+					color: $white;
+				}
+				&__content:before{
+					opacity: 1;
+					max-width: 100%;
+				}
+				&__content:after{
+					opacity: 0.2;
+				}
+			}
+		}
+	}
+}
+
+.service-two{
+   &__single{
+      margin-bottom: 30px;
+      background: $white;
+      position: relative;
+   }
+   &__wrap{
+      margin-top: 10px;
+      position: relative;
+      transition: all 300ms ease;
+      &:before{
+         position: absolute;
+         left: 0;
+         top: 0;
+         height: 100%;
+         width: 100%;
+         max-width: 0;
+         content: "";
+         transition: all 300ms ease;
+      }
+      &:after {
+         content: "";
+         position: absolute;
+         top: 50px;
+         left: 0;
+         width: 100%;
+         height: 26px;
+         transition: all 300ms ease;
+      }
+   }
+   &__image{
+      position: relative;
+      min-height: 220px;
+      background: $theme-color-second;
+      overflow: hidden;
+      img{
+         opacity: 0.25;
+         width: 100%!important;
+         height: 100%!important;
+         object-fit: cover;
+         position: absolute;
+         transform: translate(-50%, -50%);
+         left: 50%;
+         top: 50%;
+      }
+   }
+   &__content{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      padding: 40px 40px 20px;
+   }
+   &__content-icon{
+      position: relative;
+      display: block;
+      color: $theme-color;
+      font-size: 64px;
+      line-height: 1;
+      z-index: 2;
+      transition: all 300ms ease;
+      margin-bottom: 20px;
+   }
+   &__content-title{
+      margin-bottom: 0;
+      color: $white;
+      font-size: 20px;
+      letter-spacing: -0.8px;
+   }
+   &__content-inner{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background-color: $white;
+      z-index: 2;
+      padding: 35px 40px 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 300ms ease;
+      &:before {
+         position: absolute;
+         left: 10px;
+         right: 10px;
+         top: 10px;
+         bottom: 10px;
+         border: 2px solid;
+         -o-border-image: linear-gradient(to right, $theme-color, transparent, transparent) 1;
+         border-image: -webkit-gradient(linear, left top, right top, from($theme-color), color-stop(transparent), to(transparent)) 1;
+         border-image: linear-gradient(to right, $theme-color, transparent, transparent) 1;
+         content: "";
+      }
+   }
+   &__icon{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 64px;
+      line-height: 1;
+      color: #f4f4f4;
+   }
+   &__title{
+      font-size: 20px;
+      letter-spacing: -0.8px;
+   }
+   &__desc{
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.86;
+   }
+   &__action{
+      position: absolute;
+      right: 70px;
+      bottom: -14px;
+      height: 52px;
+      width: 52px;
+      background: $theme-color;
+      border-radius: 50%;
+      color: #fff;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 300ms ease;
+      a{
+         color: $white;
+      }
+      &:hover, &:focus{
+         background: $theme-color-second;
+         a{
+            color: $white;
+         }
+      }
+   }
+   &__overlay-link{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+   }
+   &__single{
+      &:hover{
+         .service-two{
+            &__wrap{
+               transform: translateY(-10px);
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+            }
+            &__content-inner{
+               opacity: 1;
+               visibility: visible;
+            }
+            &__action{
+               right: 40px;
+            }
+         }
+      }
+   }
+}
+
+.service-three{
+	&__single{
+		background: $white;
+		padding: 50px;
+		margin-bottom: 60px;
+		box-shadow: 0 10px 60px rgba(0, 0, 0, 0.1);
+		position: relative;
+		z-index: 1;
+		transition: all 300ms ease;
+		@media (max-width: 1024px){
+			padding: 30px;
+		}
+		&:before{
+			position: absolute;
+		    left: 0;
+		    top: 0;
+		    height: 100%;
+		    width: 100%;
+		    background-image: url("#{$base-theme-image-path}/bg-service-3.png");
+		    background-position: right top;
+		    background-repeat: no-repeat;
+		    content: "";
+		    -webkit-transition: all 400ms ease;
+		    transition: all 400ms ease;
+		}
+	}
+	&__icon{
+		font-size: 62px;
+		color: $theme-color;
+		line-height: 1;
+		position: relative;
+		z-index: 1;
+		i{
+			transition: all 300ms ease;
+		}
+	}
+	&__title{
+		font-size: 20px;
+		letter-spacing: -0.8px;
+		transition: all 500ms ease;
+		margin-top: 15px;
+	}
+	&__desc{
+		margin-top: 30px;
+		transition: all 500ms ease;
+	}
+	&__action{
+		position: absolute;
+		right: 40px;
+		bottom: -30px;
+	  	a{
+			height: 52px;
+			width: 52px;
+			padding: 0;
+			background-color: $theme-color;
+			border-radius: 50%;
+			color: #fff;
+			z-index: 3;
+			display: flex;
+	        align-items: center;
+	        justify-content: center;
+			transition: all 300ms ease;
+		}
+	}
+	&__overlay-link{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 11;
+	}
+	&__single{
+		&:hover, &:focus, &:active{
+			background: $theme-color;
+			&:before{
+				opacity: 0.2;
+		    	transition: all 100ms ease;
+			}
+			.service-three{
+				&__title{
+					color: $white;
+				}
+				&__icon{
+					color: $white;
+					i{
+		    			transform: scale(-1) rotate(180deg);
+		    		}
+				}
+				&__desc{
+					color: $white;
+				}
+				&__action a{
+					background: $theme-color-second;
+				}
+			}
+		}
+	}
+}
+
+.service-four{
+	&__single{
+		position: relative;
+		background: #fff;
+		transition: all 300ms ease;
+          box-shadow: 0 0px 30px rgba(0, 0, 0, 0.05);
+          margin-bottom: 30px;
+	}
+	&__image{
+		img{
+			transition: all 300ms ease;
+         width: 100%!important;
+		}
+	}
+	&__content{
+		position: relative;
+    	padding: 25px 30px 30px;
+    	&:before{
+    		content: "";
+    		position: absolute;
+    		top: 0;
+    		left: 0;
+    		background: $theme-color;
+    		height: 0;
+    		width: 100%;
+    		transition: all 300ms ease;	
+    		opacity: 0;
+    	}
+	}
+	&__content-inner{
+		position: relative;
+	}
+	&__icon{
+		position: absolute;
+		right: -10px;
+		top: -65px;
+		width: 70px;
+		height: 78px;
+		background-image: url("#{$base-theme-image-path}/bg-service-4.png");
+		display: flex;
+	    align-items: center;
+	    justify-content: center;
+		color: $white;
+		font-size: 36px;
+		line-height: 1;
+		z-index: 2;
+		transition: all 300ms ease;
+		margin-bottom: 20px; 
+		&:after {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background-image: url("#{$base-theme-image-path}/bg-service-4-white.png");
+			-webkit-transform: scale(0);
+			transform: scale(0);
+			opacity: 0;
+			transition: all 300ms ease;
+			content: "";
+		}
+		i{
+			position: relative;
+			z-index: 2;
+		}
+	}
+	&__title{
+		font-size: 20px;
+		letter-spacing: -0.8px;
+		transition: all 300ms ease;
+	}
+	&__desc{
+		font-size: 15px;
+		line-height: 2;
+		transition: all 300ms ease;
+	}
+	&__link-overlay{
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		@include size(100%, 100%);
+	}
+	&__single{
+		&:hover, &:focus, &:active{
+			.service-four{
+				&__image img{
+					transform: scale(1);
+				}
+				&__content:before{
+					height: 100%;
+					opacity: 1;
+				}
+				&__icon{
+					color: $theme-color;
+					&:after{
+						transform: scale(1);
+    					opacity: 1;
+					}
+				}
+				&__title{
+					color: $white;
+				}
+				&__desc{
+					color: $white;
+				}
+			}
+		}
+	}
+}
+
+//Carousel Center
+.owl-carousel .owl-item.center{
+	.service-one{
+		&__single{
+			box-shadow: 0px 6px 21px 3px rgba(0, 0, 0, 0.1); 
+			background: $theme-color;
+			border-color: transparent;
+		}
+		&__icon{
+			color: $white;
+		}
+		&__title{
+			color: $white;
+		}
+		&__desc{
+			color: rgba(255, 255, 255, 0.8);
+			&:after{
+				background: $white;
+				width: 45px;
+			}
+		}
+	}
+   .service-two{
+      &__wrap{
+         transform: translateY(-10px);
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+      }
+      &__content-inner{
+         opacity: 1;
+         visibility: visible;
+      }
+      &__action{
+         right: 40px;
+      }
+   }
+   .service-four{
+      &__image img{
+         transform: scale(1);
+      }
+      &__content:before{
+         height: 100%;
+         opacity: 1;
+      }
+      &__icon{
+         color: $theme-color;
+         &:after{
+            transform: scale(1);
+            opacity: 1;
+         }
+      }
+      &__title{
+         color: $white;
+      }
+      &__desc{
+         color: $white;
+      }
+   }
+}

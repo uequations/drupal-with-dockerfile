@@ -1,0 +1,92 @@
+.gsc-accordion{
+  .panel-body{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .panel-group{
+    &.skin-white{
+      .panel{
+        padding: 0;
+        border: 0;
+        margin-bottom: 10px;
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.07);
+        .panel-title{
+          @media (max-width: 940px){
+            font-size: 16px;
+            line-height: 20px;
+          }
+          a{
+            padding: 25px 30px;
+            background: $theme-color;
+            color: $white;
+            @media (max-width: 1200px){
+              padding: 18px 30px;
+            }
+            @media (max-width: 480px){
+              padding-right: 40px;
+            }
+            &:after{
+              color: $white;
+              right: 20px;
+              top: 20px;
+            }
+            &.collapsed{
+              background: $white;
+              color: $theme-color-second;
+              &:after{
+                color: $theme-color-second;
+                
+              }
+            }
+          }
+        }
+        .panel-body{
+          padding: 25px 30px;
+        }
+        &:last-child{
+          margin-bottom: 0;
+        }
+      } 
+    }
+    &.skin-dark{
+      background: #f5f5f5;
+      .panel{
+        background: #f5f5f5;
+        border-bottom: 1px solid #e2e2e2!important;
+        .panel-title{
+          background: #f5f5f5!important;
+          a{
+            background: none!important;
+            &:after{
+              right: 0;
+            }
+          }
+        }
+        &:last-child{
+          border-bottom: none!important;
+        }
+      }
+    }
+    &.skin-white-border{
+      background: $white;
+      .panel{
+        padding: 0 0 15px!important;
+        border-bottom: 1px solid $border-color!important;
+        margin-bottom: 18px!important;
+        .panel-title a{
+          &:after{
+            right: 0;
+          }
+        }
+        .panel-body{
+          padding-top: 10px;
+        }
+        &:last-child{
+          border-bottom: 0!important;
+          margin-bottom: 0!important;
+          padding-bottom: 0!important;
+        }
+      }
+    }
+  }
+}

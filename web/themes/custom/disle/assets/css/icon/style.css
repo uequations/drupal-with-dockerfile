@@ -1,0 +1,388 @@
+@font-face {
+  font-family: 'dicomoon';
+  src:  url('icomoon.eot?5koi6e');
+  src:  url('icomoon.eot?5koi6e#iefix') format('embedded-opentype'),
+    url('icomoon.ttf?5koi6e') format('truetype'),
+    url('icomoon.woff?5koi6e') format('woff'),
+    url('icomoon.svg?5koi6e#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="dicon-"], [class*=" dicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'dicomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dicon-email:before {
+  content: "\e900";
+}
+.dicon-pin:before {
+  content: "\e901";
+}
+.dicon-networking:before {
+  content: "\e902";
+}
+.dicon-photograph:before {
+  content: "\e903";
+}
+.dicon-translation:before {
+  content: "\e904";
+}
+.dicon-stethoscope:before {
+  content: "\e905";
+}
+.dicon-skincare:before {
+  content: "\e906";
+}
+.dicon-computer:before {
+  content: "\e907";
+}
+.dicon-graphic-designer:before {
+  content: "\e908";
+}
+.dicon-checkmark:before {
+  content: "\e909";
+}
+.dicon-mission:before {
+  content: "\e90a";
+}
+.dicon-team:before {
+  content: "\e90b";
+}
+.dicon-increment:before {
+  content: "\e90c";
+}
+.dicon-right-arrow:before {
+  content: "\e90d";
+  color: #012e52;
+}
+.dicon-left-arrow:before {
+  content: "\e90e";
+}
+.dicon-handshake:before {
+  content: "\e90f";
+}
+.dicon-thumbs-up:before {
+  content: "\e910";
+}
+.dicon-creativity:before {
+  content: "\e911";
+}
+.dicon-smartphone:before {
+  content: "\e912";
+}
+.dicon-nanotechnology:before {
+  content: "\e913";
+}
+.dicon-browser:before {
+  content: "\e914";
+}
+.dicon-web:before {
+  content: "\e915";
+}
+.dicon-crowdfunding:before {
+  content: "\e916";
+}
+.dicon-crowdfunding-1:before {
+  content: "\e917";
+}
+.dicon-crowdfunding-2:before {
+  content: "\e918";
+}
+.dicon-crowdfunding-3:before {
+  content: "\e919";
+}
+.dicon-fundraise:before {
+  content: "\e91a";
+}
+.dicon-crowdfunding-4:before {
+  content: "\e91b";
+}
+.dicon-speech-bubble:before {
+  content: "\e91c";
+}
+.dicon-chat:before {
+  content: "\e91d";
+}
+.dicon-plus:before {
+  content: "\e91e";
+}
+.dicon-minus:before {
+  content: "\e91f";
+}
+.dicon-add:before {
+  content: "\e920";
+}
+.dicon-search:before {
+  content: "\e921";
+}
+.dicon-call:before {
+  content: "\e922";
+}
+.dicon-email-1:before {
+  content: "\e923";
+}
+.dicon-location:before {
+  content: "\e924";
+}
+.dicon-entrepreneur:before {
+  content: "\e925";
+}
+.dicon-location-1:before {
+  content: "\e926";
+}
+.dicon-contact:before {
+  content: "\e927";
+}
+.dicon-pin-1:before {
+  content: "\e928";
+}
+.dicon-check:before {
+  content: "\e929";
+}
+.dicon-checked:before {
+  content: "\e92a";
+}
+.dicon-stethoscope-1:before {
+  content: "\e92b";
+}
+.dicon-tshirt:before {
+  content: "\e92c";
+}
+.dicon-video-camera:before {
+  content: "\e92d";
+}
+.dicon-project-management:before {
+  content: "\e92e";
+}
+.dicon-salad:before {
+  content: "\e92f";
+}
+.dicon-reading-book:before {
+  content: "\e930";
+}
+.dicon-crowdfunding-5:before {
+  content: "\e931";
+}
+.dicon-earth-day:before {
+  content: "\e932";
+}
+.dicon-save:before {
+  content: "\e933";
+}
+.dicon-badge:before {
+  content: "\e934";
+}
+.dicon-support:before {
+  content: "\e935";
+}
+.dicon-debit-card:before {
+  content: "\e936";
+}
+.dicon-payment:before {
+  content: "\e937";
+}
+.dicon-wallet:before {
+  content: "\e938";
+}
+.dicon-phone:before {
+  content: "\e939";
+}
+.dicon-pin-2:before {
+  content: "\e93a";
+}
+.dicon-phone-call:before {
+  content: "\e93b";
+}
+.dicon-email-2:before {
+  content: "\e93c";
+}
+.dicon-success:before {
+  content: "\e93d";
+}
+.dicon-budget:before {
+  content: "\e93e";
+}
+.dicon-mission-1:before {
+  content: "\e93f";
+}
+.dicon-mission-2:before {
+  content: "\e940";
+}
+.dicon-relationship:before {
+  content: "\e941";
+}
+.dicon-scrum:before {
+  content: "\e942";
+}
+.dicon-recommend:before {
+  content: "\e943";
+}
+.dicon-group:before {
+  content: "\e944";
+}
+.dicon-campaign:before {
+  content: "\e945";
+}
+.dicon-miscellaneous:before {
+  content: "\e946";
+}
+.dicon-confirmation:before {
+  content: "\e947";
+}
+.dicon-crowdfunding-6:before {
+  content: "\e948";
+}
+.dicon-shopping-cart:before {
+  content: "\e949";
+}
+.dicon-shopping-cart-1:before {
+  content: "\e94a";
+}
+.dicon-camera:before {
+  content: "\e94b";
+}
+.dicon-video-camera-1:before {
+  content: "\e94c";
+}
+.dicon-camera-1:before {
+  content: "\e94d";
+}
+.dicon-magnifying-glass:before {
+  content: "\e94e";
+}
+.dicon-telephone:before {
+  content: "\e94f";
+}
+.dicon-high-quality:before {
+  content: "\e950";
+}
+.dicon-web-design:before {
+  content: "\e951";
+}
+.dicon-startup:before {
+  content: "\e952";
+}
+.dicon-phone-1:before {
+  content: "\e953";
+}
+.dicon-flag:before {
+  content: "\e954";
+}
+.dicon-layers:before {
+  content: "\e955";
+}
+.dicon-design:before {
+  content: "\e956";
+}
+.dicon-app-development:before {
+  content: "\e957";
+}
+.dicon-vector:before {
+  content: "\e958";
+}
+.dicon-idea:before {
+  content: "\e959";
+}
+.dicon-megaphone:before {
+  content: "\e95a";
+}
+.dicon-completed-task:before {
+  content: "\e95b";
+}
+.dicon-customer-service:before {
+  content: "\e95c";
+}
+.dicon-development:before {
+  content: "\e95d";
+}
+.dicon-customer-service-1:before {
+  content: "\e95e";
+}
+.dicon-place:before {
+  content: "\e95f";
+}
+.dicon-phone-2:before {
+  content: "\e960";
+}
+.dicon-schedule:before {
+  content: "\e961";
+}
+.dicon-team-1:before {
+  content: "\e962";
+}
+.dicon-good-quality:before {
+  content: "\e963";
+}
+.dicon-software:before {
+  content: "\e964";
+}
+.dicon-edit-tools:before {
+  content: "\e965";
+}
+.dicon-app-development-1:before {
+  content: "\e966";
+}
+.dicon-content-creator:before {
+  content: "\e967";
+}
+.dicon-advertisig-agency:before {
+  content: "\e968";
+}
+.dicon-assurance:before {
+  content: "\e969";
+}
+.dicon-brainstorm:before {
+  content: "\e96a";
+}
+.dicon-crm:before {
+  content: "\e96b";
+}
+.dicon-agreement:before {
+  content: "\e96c";
+}
+.dicon-idea-1:before {
+  content: "\e96d";
+}
+.dicon-users-avatar:before {
+  content: "\e96e";
+}
+.dicon-low-price:before {
+  content: "\e96f";
+}
+.dicon-24-hours:before {
+  content: "\e970";
+}
+.dicon-consultation:before {
+  content: "\e971";
+}
+.dicon-knowledge:before {
+  content: "\e972";
+}
+.dicon-coding:before {
+  content: "\e973";
+}
+.dicon-development-1:before {
+  content: "\e974";
+}
+.dicon-agile:before {
+  content: "\e975";
+}
+.dicon-consulting:before {
+  content: "\e976";
+}
+.dicon-innovation:before {
+  content: "\e977";
+}
