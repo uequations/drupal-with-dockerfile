@@ -58,6 +58,8 @@ return array(
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'Peast\\' => array($vendorDir . '/mck89/peast/lib/Peast'),
     'OpenIDConnectServer\\' => array($vendorDir . '/steverhoades/oauth2-openid-connect-server/src'),
+    'MicrosoftAzure\\Storage\\Common\\' => array($vendorDir . '/microsoft/azure-storage-common/src/Common'),
+    'MicrosoftAzure\\Storage\\Blob\\' => array($vendorDir . '/microsoft/azure-storage-blob/src/Blob'),
     'Masterminds\\' => array($vendorDir . '/masterminds/html5/src'),
     'Mailchimp\\http\\' => array($vendorDir . '/thinkshout/mailchimp-api-php/src/http'),
     'Mailchimp\\' => array($vendorDir . '/thinkshout/mailchimp-api-php/src'),

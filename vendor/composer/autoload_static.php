@@ -106,6 +106,8 @@ class ComposerStaticInit707f7590d632e07d7add8405a30a9cb8
         ),
         'M' => 
         array (
+            'MicrosoftAzure\\Storage\\Common\\' => 30,
+            'MicrosoftAzure\\Storage\\Blob\\' => 28,
             'Masterminds\\' => 12,
             'Mailchimp\\http\\' => 15,
             'Mailchimp\\' => 10,
@@ -382,6 +384,14 @@ class ComposerStaticInit707f7590d632e07d7add8405a30a9cb8
         'OpenIDConnectServer\\' => 
         array (
             0 => __DIR__ . '/..' . '/steverhoades/oauth2-openid-connect-server/src',
+        ),
+        'MicrosoftAzure\\Storage\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/microsoft/azure-storage-common/src/Common',
+        ),
+        'MicrosoftAzure\\Storage\\Blob\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/microsoft/azure-storage-blob/src/Blob',
         ),
         'Masterminds\\' => 
         array (
