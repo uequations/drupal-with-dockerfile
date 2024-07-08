@@ -92,10 +92,12 @@ ENV PATH=${PATH}:/opt/drupal/vendor/bin
 
 # vim:set ft=dockerfile:
 
+# Check directories
+RUN pwd
+RUN ls -h`
+
 # Add directories for public and private files
-RUN mkdir -p  /home/site/wwwroot/sites/default/files \
-    && mkdir -p  /home/site/wwwroot/sites/default/files/private \
-    && ln -s /home/site/wwwroot/sites/default/files  /var/www/html/docroot/sites/default/files \
+RUN ln -s /home/site/wwwroot/sites/default/files  /var/www/html/docroot/sites/default/files \
     && ln -s /home/site/wwwroot/sites/default/files/private  /var/www/html/docroot/sites/default/files/private
 
 # Start and enable SSH
