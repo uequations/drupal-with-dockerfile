@@ -94,11 +94,13 @@ ENV PATH=${PATH}:/opt/drupal/vendor/bin
 
 # Check directories
 # RUN pwd /opt/drupal
-RUN ls -h
+RUN ls -h /home
 
 # Add directories for public and private files
-RUN ln -s /home/site/wwwroot/sites/default/files  /var/www/html/docroot/sites/default/files \
-    && ln -s /home/site/wwwroot/sites/default/files/private  /var/www/html/docroot/sites/default/files/private
+# RUN mkdir -p  /home/site/wwwroot/sites/default/files \
+#	&& mkdir -p  /home/site/wwwroot/sites/default/files/private
+# RUN ln -s /home/site/wwwroot/sites/default/files  /var/www/html/docroot/sites/default/files \
+#    && ln -s /home/site/wwwroot/sites/default/files/private  /var/www/html/docroot/sites/default/files/private
 
 # Start and enable SSH
 COPY entrypoint.sh ./
