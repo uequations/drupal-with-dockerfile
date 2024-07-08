@@ -20,3 +20,8 @@ If needed
 ```
 az webapp config set --resource-group <resource-group-name> -n <app-name> --remote-debugging-enabled=false
 ```
+
+## Logs
+```
+az webapp log tail --resource-group <resource-groups> --name <app-name>
+```

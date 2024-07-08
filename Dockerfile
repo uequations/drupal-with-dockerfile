@@ -92,10 +92,6 @@ ENV PATH=${PATH}:/opt/drupal/vendor/bin
 
 # vim:set ft=dockerfile:
 
-# Check directories
-# RUN pwd /opt/drupal
-RUN ls -h /home
-
 # Add directories for public and private files
 # RUN mkdir -p  /home/site/wwwroot/sites/default/files \
 #	&& mkdir -p  /home/site/wwwroot/sites/default/files/private
