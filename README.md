@@ -8,5 +8,15 @@ Go to the Deployment Center and update the tag number for the for the image. Onc
 
 ## Azure Blob File Storage
 ```
-az storage account keys list --resource-group drupal-custom_rg --account-name drupalcustomstorage
+az storage account keys list --resource-group <resource-group-name> --account-name <storage-account-name>
+```
+
+## Azure SSH Into Container
+```
+$ az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
+```
+
+If needed
+```
+az webapp config set --resource-group <resource-group-name> -n <app-name> --remote-debugging-enabled=false
 ```
