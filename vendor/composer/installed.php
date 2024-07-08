@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '94ebc6a63b269d5ea16e6f29b1090f4acbb41666',
+        'reference' => 'b78e0a5887e4639920acfca7ef66e8ab7f3bb086',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -442,6 +442,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/health_check' => array(
+            'pretty_version' => '3.1.0',
+            'version' => '3.1.0.0',
+            'reference' => '3.1.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/health_check',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/imce' => array(
             'pretty_version' => '3.1.0',
             'version' => '3.1.0.0',
@@ -544,7 +553,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '94ebc6a63b269d5ea16e6f29b1090f4acbb41666',
+            'reference' => 'b78e0a5887e4639920acfca7ef66e8ab7f3bb086',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
