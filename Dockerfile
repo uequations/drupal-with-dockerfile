@@ -5,7 +5,7 @@
 #
 
 # https://www.drupal.org/docs/system-requirements/php-requirements
-FROM php:8.3-apache-bullseye
+FROM us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v2
 
 COPY . /opt/drupal
 
@@ -19,8 +19,8 @@ RUN set -eux; \
 	\
 	savedAptMark="$(apt-mark showmanual)"; \
 	\
-	apt-get update; \
-	apt-get install -y --no-install-recommends \
+	apt update; \
+	apt install -y --no-install-recommends \
 		libfreetype6-dev \
 		libjpeg-dev \
 		libpng-dev \
@@ -54,7 +54,7 @@ RUN set -eux; \
 		| sort -u \
 		| xargs -rt apt-mark manual; \
 	\
-	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+	apt purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
 	rm -rf /var/lib/apt/lists/*
 
 # set recommended PHP.ini settings
@@ -69,14 +69,14 @@ RUN { \
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/
 
 # 2024-05-01: https://www.drupal.org/project/drupal/releases/10.2.6
-ENV DRUPAL_VERSION 10.2.6
+ENV DRUPAL_VERSION=10.2.6
 
 # https://github.com/docker-library/drupal/pull/259
 # https://github.com/moby/buildkit/issues/4503
 # https://github.com/composer/composer/issues/11839
 # https://github.com/composer/composer/issues/11854
 # https://github.com/composer/composer/blob/94fe2945456df51e122a492b8d14ac4b54c1d2ce/src/Composer/Console/Application.php#L217-L218
-ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 WORKDIR /opt/drupal
 RUN set -eux; \
@@ -101,9 +101,9 @@ ENV PATH=${PATH}:/opt/drupal/vendor/bin
 # Start and enable SSH
 COPY entrypoint.sh ./
 
-RUN apt-get update \
-	&& apt-get install -y --no-install-recommends dialog \
-	&& apt-get install -y --no-install-recommends openssh-server \
+RUN apt update \
+	&& apt install -y --no-install-recommends dialog \
+	&& apt install -y --no-install-recommends openssh-server \
 	&& echo "root:Docker!" | chpasswd \
 	&& chmod u+x ./entrypoint.sh
 COPY sshd_config /etc/ssh/
