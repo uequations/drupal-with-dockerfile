@@ -25,3 +25,79 @@ az webapp config set --resource-group <resource-group-name> -n <app-name> --remo
 ```
 az webapp log tail --resource-group <resource-groups> --name <app-name>
 ```
+
+## Useful Commands
+
+### Useful Docker Commands
+
+#### Authenticate with Google Cloud Artifact Docker Registry
+```sh
+gcloud auth configure-docker us-east4-docker.pkg.dev
+```
+
+#### Build Docker image
+```sh
+docker build -t ubuntu-apache-httpd-php:v1 .
+```
+
+```sh
+docker build -t us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v2 .
+```
+#### Push Docker Build to Registry
+```
+docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v2
+```
+
+#### Open Interactive Bash
+```sh
+docker exec -it e706b3fa81b1 bash
+```
+
+#### Useful gcloud commands
+```sh
+COMMIT_ID="$(git rev-parse --short=7 HEAD)"
+
+gcloud builds submit --tag="${REGION}-docker.pkg.dev/${PROJECT_ID}/uequations-docker-registry/ubuntu-apache-httpd-php:v0.2" .
+
+gcloud builds submit --region=us-east4 --tag="us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v0.2" .
+
+docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v2
+```
+
+```sh
+gcloud artifacts repositories list --project=dev-45627 \
+--location=us-east4
+```
+
+```sh
+gcloud artifacts repositories describe uequations-docker-registry  --project=dev-45627 --location=us-east4
+```
+
+## Deployment to Google Cloud
+
+### Service Accounts
+560314436456-compute@developer.gserviceaccount.com
+
+### Roles Needed
+storage.objects.list => Storage Object Viewer (roles/storage.objectViewer)
+roles/logging.logwriter => Logs Writer (roles/logging.logwriter)
+
+## Common Errors
+
+### Google Cloud
+```
+INFO: The service account running this build projects/dev-45627/serviceAccounts/560314436456-compute@developer.gserviceaccount.com does not have permission to write logs to Cloud Logging. To fix this, grant the Logs Writer (roles/logging.logWriter) role to the service account.
+```
+
+```
+560314436456-compute@developer.gserviceaccount.com does not have storage.objects.list access to the Google Cloud Storage bucket. Permission 'storage.objects.list' denied on resource (or it may not exist).
+```
+
+
+## Refences
+- https://cloud.google.com/storage/docs/access-control/iam-roles
+- https://cloud.google.com/logging/docs/access-control
+
+```
+The 'Domain Restricted Sharing' organization policy (constraints/iam.allowedPolicyMemberDomains) is enforced. Only principals in allowed domains can be added as principals in the policy. Correct the principal emails and try again. Learn more about domain restricted sharing.
+```
