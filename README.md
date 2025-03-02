@@ -36,6 +36,12 @@ az webapp log tail --resource-group <resource-groups> --name <app-name>
 ```sh
 gcloud auth configure-docker us-east4-docker.pkg.dev
 ```
+This command will confiure your ~/.docker/config.json. Verify this file is updated correctly.
+
+You may also need to run the command:
+```sh
+gcloud auth login
+```
 
 #### Build Docker image
 ```sh
@@ -43,12 +49,14 @@ docker build -t ubuntu-apache-httpd-drupal-4614:v1 .
 ```
 
 ```sh
-docker build -t us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v2 .
+docker build -t us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v2 .
 ```
 #### Push Docker Build to Registry
+```sh
+docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v2
 ```
-docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v2
-```
+
+Once it is pushed to the registry
 
 #### Open Interactive Bash
 ```sh
@@ -63,7 +71,7 @@ gcloud builds submit --tag="${REGION}-docker.pkg.dev/${PROJECT_ID}/uequations-do
 
 gcloud builds submit --region=us-east4 --tag="us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v0.2" .
 
-docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v2
+docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v2
 ```
 
 ```sh

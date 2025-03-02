@@ -90,24 +90,10 @@ RUN set -eux; \
 
 ENV PATH=${PATH}:/opt/drupal/vendor/bin
 
-# vim:set ft=dockerfile:
-
-# Add directories for public and private files
-# RUN mkdir -p  /home/site/wwwroot/sites/default/files \
-#	&& mkdir -p  /home/site/wwwroot/sites/default/files/private
-# RUN ln -s /home/site/wwwroot/sites/default/files  /var/www/html/docroot/sites/default/files \
-#    && ln -s /home/site/wwwroot/sites/default/files/private  /var/www/html/docroot/sites/default/files/private
-
-# Start and enable SSH
-COPY entrypoint.sh ./
-
-RUN apt update \
-	&& apt install -y --no-install-recommends dialog \
-	&& apt install -y --no-install-recommends openssh-server \
-	&& echo "root:Docker!" | chpasswd \
-	&& chmod u+x ./entrypoint.sh
-COPY sshd_config /etc/ssh/
+# RUN apt update \
+# 	&& apt install -y --no-install-recommends dialog \
+# 	&& apt install -y --no-install-recommends openssh-server \
+# 	&& echo "root:Docker!" | chpasswd
+# COPY sshd_config /etc/ssh/
 	
 EXPOSE 8000 2222
-	
-# ENTRYPOINT [ "./entrypoint.sh" ]
