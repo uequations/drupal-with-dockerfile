@@ -14,7 +14,7 @@ class MultiresponseJsonNormalizer implements NormalizerInterface {
   /**
    * {@inheritdoc}
    */
-  public function normalize($object, $format = NULL, array $context = []) {
+  public function normalize($object, $format = NULL, array $context = []): array|bool|string|int|float|null|\ArrayObject {
     // Prepare the root content type header.
     $headers = ['X-Sub-Content-Type' => $context['sub-content-type'], 'Content-Type' => 'application/json'];
 
@@ -39,7 +39,7 @@ class MultiresponseJsonNormalizer implements NormalizerInterface {
   /**
    * {@inheritdoc}
    */
-  public function supportsNormalization($data, $format = NULL) {
+  public function supportsNormalization($data, $format = NULL, array $context = []): bool {
     if ($format !== 'json') {
       return FALSE;
     }

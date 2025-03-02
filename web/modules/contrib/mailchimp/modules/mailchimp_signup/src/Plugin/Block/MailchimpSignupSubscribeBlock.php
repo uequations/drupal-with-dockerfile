@@ -2,12 +2,12 @@
 
 namespace Drupal\mailchimp_signup\Plugin\Block;
 
-use Drupal\mailchimp_signup\Form\MailchimpSignupPageForm;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\mailchimp_signup\Entity\MailchimpSignup;
+use Drupal\mailchimp_signup\Form\MailchimpSignupPageForm;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**

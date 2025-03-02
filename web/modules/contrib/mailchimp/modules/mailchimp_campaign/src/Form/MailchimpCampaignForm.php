@@ -16,8 +16,8 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Messenger\MessengerInterface;
-use Drupal\Core\Url;
 use Drupal\Core\Render\RendererInterface;
+use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -100,7 +100,7 @@ class MailchimpCampaignForm extends ContentEntityForm {
     CacheBackendInterface $cache,
     RendererInterface $render,
     EntityTypeBundleInfoInterface $entity_type_bundle_info = NULL,
-    TimeInterface $time = NULL
+    TimeInterface $time = NULL,
   ) {
     parent::__construct($entity_repository, $entity_type_bundle_info, $time);
     $this->config = $config_factory;

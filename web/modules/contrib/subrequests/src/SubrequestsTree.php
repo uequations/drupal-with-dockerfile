@@ -20,6 +20,7 @@ class SubrequestsTree extends \ArrayObject {
    * Adds a sequence of subrequests to the stack.
    *
    * @param \Drupal\subrequests\Subrequest[] $subrequests
+   *   Subrequest data.
    */
   public function stack($subrequests) {
     // Make sure we only push Subrequest objects.
@@ -32,6 +33,7 @@ class SubrequestsTree extends \ArrayObject {
    * Gets the number of levels in the stack.
    *
    * @return int
+   *   Stack levels.
    */
   public function getNumLevels() {
     return $this->count();
@@ -50,7 +52,7 @@ class SubrequestsTree extends \ArrayObject {
   /**
    * Gets the master request.
    *
-   * @return \Symfony\Component\HttpFoundation\Request $request
+   * @return \Symfony\Component\HttpFoundation\Request
    *   The request.
    */
   public function getMasterRequest() {

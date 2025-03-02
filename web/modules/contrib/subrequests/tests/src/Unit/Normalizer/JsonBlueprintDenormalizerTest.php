@@ -2,11 +2,11 @@
 
 namespace Drupal\Tests\subrequests\Normalizer;
 
-use Prophecy\PhpUnit\ProphecyTrait;
 use Drupal\subrequests\Normalizer\JsonBlueprintDenormalizer;
 use Drupal\subrequests\Subrequest;
 use Drupal\subrequests\SubrequestsTree;
 use Drupal\Tests\UnitTestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -16,11 +16,17 @@ use Psr\Log\LoggerInterface;
 class JsonBlueprintDenormalizerTest extends UnitTestCase {
 
   use ProphecyTrait;
+
   /**
+   * Json blueprint denormalizer service.
+   *
    * @var \Drupal\subrequests\Normalizer\JsonBlueprintDenormalizer
    */
   protected $sut;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $logger = $this->prophesize(LoggerInterface::class);
@@ -28,6 +34,8 @@ class JsonBlueprintDenormalizerTest extends UnitTestCase {
   }
 
   /**
+   * Test for supportsDenormalization method.
+   *
    * @dataProvider dataProviderSupportsNormalization
    * @covers ::supportsDenormalization
    */
@@ -36,7 +44,10 @@ class JsonBlueprintDenormalizerTest extends UnitTestCase {
     $this->assertSame($is_supported, $actual);
   }
 
-  public function dataProviderSupportsNormalization() {
+  /**
+   * Data provider for testSupportsDenormalization.
+   */
+  public static function dataProviderSupportsNormalization(): array {
     return [
       [['a', 'b'], SubrequestsTree::class, 'json', TRUE],
       ['fail', SubrequestsTree::class, 'json', FALSE],
@@ -45,6 +56,9 @@ class JsonBlueprintDenormalizerTest extends UnitTestCase {
     ];
   }
 
+  /**
+   * Test for denormalize method.
+   */
   public function testDenormalize() {
     $subrequests[] = [
       'uri' => 'lorem',
@@ -61,7 +75,8 @@ class JsonBlueprintDenormalizerTest extends UnitTestCase {
       'waitFor' => ['foo'],
     ];
     $subrequests[] = [
-      'uri' => 'lorem%3F%7B%7Bipsum%7D%7D', // lorem?{{ipsum}}
+    // lorem?{{ipsum}}.
+      'uri' => 'lorem%3F%7B%7Bipsum%7D%7D',
       'action' => 'create',
       'requestId' => 'oof',
       'body' => '"bar"',
@@ -79,9 +94,9 @@ class JsonBlueprintDenormalizerTest extends UnitTestCase {
           'headers' => [],
           '_resolved' => FALSE,
           'body' => 'bar',
-          'uri' => 'lorem?{{ipsum}}'
+          'uri' => 'lorem?{{ipsum}}',
         ] + $subrequests[2]
-      )
+      ),
     ]);
     $this->assertEquals($tree, $actual);
   }

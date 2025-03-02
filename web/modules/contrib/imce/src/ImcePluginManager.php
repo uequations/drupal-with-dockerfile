@@ -74,16 +74,14 @@ class ImcePluginManager extends DefaultPluginManager {
    */
   public function getInstance(array $options) {
     $id = $options['id'] ?? NULL;
-    if ($id) {
-      return $this->instances[$id] ?? $this->createInstance($id);
-    }
+    return $id ? ($this->instances[$id] ?? $this->createInstance($id)) : FALSE;
   }
 
   /**
    * Returns all available plugin instances.
    *
    * @return array
-   *   A an array plugin intances.
+   *   A an array plugin instances.
    */
   public function getInstances() {
     if (!isset($this->instances)) {

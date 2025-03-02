@@ -22,6 +22,7 @@ class TestPolicy implements RequestPolicyInterface {
    * Constructs a TestPolicy object.
    *
    * @param \Drupal\Core\State\StateInterface $state
+   *   State service.
    */
   public function __construct(StateInterface $state) {
     $this->state = $state;

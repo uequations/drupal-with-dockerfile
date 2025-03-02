@@ -2,11 +2,11 @@
 
 namespace Drupal\Tests\subrequests\Unit\Blueprint;
 
-use Drupal\subrequests\Normalizer\JsonSubrequestDenormalizer;
-use Drupal\subrequests\Normalizer\MultiresponseJsonNormalizer;
 use Drupal\Core\Cache\CacheableResponse;
 use Drupal\subrequests\Blueprint\BlueprintManager;
 use Drupal\subrequests\Normalizer\JsonBlueprintDenormalizer;
+use Drupal\subrequests\Normalizer\JsonSubrequestDenormalizer;
+use Drupal\subrequests\Normalizer\MultiresponseJsonNormalizer;
 use Drupal\subrequests\Normalizer\MultiresponseNormalizer;
 use Drupal\subrequests\SubrequestsTree;
 use Drupal\Tests\UnitTestCase;
@@ -23,10 +23,15 @@ use Symfony\Component\Serializer\Serializer;
 class BlueprintManagerTest extends UnitTestCase {
 
   /**
+   * Blueprint manager.
+   *
    * @var \Drupal\subrequests\Blueprint\BlueprintManager
    */
   protected $sut;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $serializer = new Serializer(
@@ -42,6 +47,8 @@ class BlueprintManagerTest extends UnitTestCase {
   }
 
   /**
+   * Test for parse method.
+   *
    * @covers ::parse
    */
   public function testParse() {
@@ -51,6 +58,8 @@ class BlueprintManagerTest extends UnitTestCase {
   }
 
   /**
+   * Test for combineResponses method.
+   *
    * @covers ::combineResponses
    */
   public function testCombineResponses() {

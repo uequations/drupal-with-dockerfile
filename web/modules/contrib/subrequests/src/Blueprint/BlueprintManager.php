@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Serializer;
 
+/**
+ * Manages the blueprint.
+ */
 class BlueprintManager {
 
   /**
@@ -18,6 +21,9 @@ class BlueprintManager {
    */
   protected $serializer;
 
+  /**
+   * {@inheritDoc}
+   */
   public function __construct(Serializer $serializer) {
     $this->serializer = $serializer;
   }
@@ -27,8 +33,11 @@ class BlueprintManager {
    *
    * @param string $input
    *   The input from the user.
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   *   The input from the user.
    *
    * @return \Drupal\subrequests\SubrequestsTree
+   *   Parsed subrequest tree.
    */
   public function parse($input, Request $request) {
     /** @var \Drupal\subrequests\SubrequestsTree $output */
@@ -41,6 +50,8 @@ class BlueprintManager {
   }
 
   /**
+   * Combines the responses of blueprint.
+   *
    * @param \Symfony\Component\HttpFoundation\Response[] $responses
    *   The responses to combine.
    * @param string $format
@@ -107,7 +118,7 @@ class BlueprintManager {
   protected function forwardHeader($name, Request $from, SubrequestsTree $tree) {
     foreach ($tree as $level) {
       foreach ($level as $subrequest) {
-        /** @var $subrequest \Drupal\subrequests\Subrequest */
+        /** @var \Drupal\subrequests\Subrequest $subrequest */
         if (isset($subrequest->headers[$name])) {
           continue;
         }

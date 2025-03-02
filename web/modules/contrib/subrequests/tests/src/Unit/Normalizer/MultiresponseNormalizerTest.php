@@ -13,16 +13,23 @@ use Symfony\Component\HttpFoundation\Response;
 class MultiresponseNormalizerTest extends UnitTestCase {
 
   /**
+   * Multi response normalizer service.
+   *
    * @var \Drupal\subrequests\Normalizer\MultiresponseNormalizer
    */
   protected $sut;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->sut = new MultiresponseNormalizer();
   }
 
   /**
+   * Test for supportsNormalization method.
+   *
    * @dataProvider dataProviderSupportsNormalization
    * @covers ::supportsNormalization
    */
@@ -31,7 +38,10 @@ class MultiresponseNormalizerTest extends UnitTestCase {
     $this->assertSame($is_supported, $actual);
   }
 
-  public function dataProviderSupportsNormalization() {
+  /**
+   * Data provider for testSupportsNormalization.
+   */
+  public static function dataProviderSupportsNormalization(): array {
     return [
       [[new Response('')], 'multipart-related', TRUE],
       [[], 'multipart-related', FALSE],
@@ -42,6 +52,8 @@ class MultiresponseNormalizerTest extends UnitTestCase {
   }
 
   /**
+   * Test for normalize method.
+   *
    * @covers ::normalize
    */
   public function testNormalize() {

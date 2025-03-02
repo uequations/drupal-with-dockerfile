@@ -6,7 +6,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Link;
-use Drupal\Core\State\State;
+use Drupal\Core\State\StateInterface;
 use Drupal\Core\Url;
 use Mailchimp\MailchimpAPIException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -25,19 +25,19 @@ class MailchimpAdminSettingsForm extends ConfigFormBase {
   /**
    * StateService.
    *
-   * @var Drupal\Core\State
+   * @var \Drupal\Core\State\StateInterface
    */
-  protected State $stateService;
+  protected StateInterface $stateService;
 
   /**
    * Creates a new MailchimpAdminSettingsForm instance.
    *
    * @param \Drupal\Core\Language\LanguageManagerInterface $languageManager
    *   The language manager.
-   * @param \Drupal\Core\State $stateService
+   * @param \Drupal\Core\State\StateInterface $stateService
    *   State service.
    */
-  public function __construct(LanguageManagerInterface $languageManager, State $stateService) {
+  public function __construct(LanguageManagerInterface $languageManager, StateInterface $stateService) {
     $this->languageManager = $languageManager;
     $this->stateService = $stateService;
   }

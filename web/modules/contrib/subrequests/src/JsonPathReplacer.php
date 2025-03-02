@@ -2,11 +2,14 @@
 
 namespace Drupal\subrequests;
 
-use JsonPath\JsonObject;
 use Drupal\Component\Serialization\Json;
+use JsonPath\JsonObject;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
+/**
+ * Defines the json path replacer.
+ */
 class JsonPathReplacer {
 
   /**
@@ -19,7 +22,7 @@ class JsonPathReplacer {
    *
    * @return \Drupal\subrequests\Subrequest[]
    *   An array of subrequests. Note that one input subrequest can generate N
-   *   output subrequests. This is because JSON path expressinos can return
+   *   output subrequests. This is because JSON path expressions can return
    *   multiple values.
    */
   public function replaceBatch(array $batch, array $responses) {
@@ -32,8 +35,7 @@ class JsonPathReplacer {
   }
 
   /**
-   * Searches for JSONPath tokens in the request and replaces it with the values
-   * from previous responses.
+   * Searches for JSONPath tokens in the request and replaces them.
    *
    * @param \Drupal\subrequests\Subrequest $subrequest
    *   The list of requests that can contain tokens.
@@ -113,7 +115,7 @@ class JsonPathReplacer {
       $index++;
       // Now replace all the tokens in the request member.
       $token_subject = $this->serializeMember($token_location, $cloned->{$token_location});
-      foreach($point as $replacement) {
+      foreach ($point as $replacement) {
         // Do all the different replacements on the same subject.
         $token_subject = $this->replaceTokenSubject(
           $replacement['token'],
@@ -146,10 +148,10 @@ class JsonPathReplacer {
       if (is_bool($value)) {
         $value = $value ? 'true' : 'false';
       }
-      $regexp = sprintf('/%s/', preg_quote("\"$token\""), '/');
+      $regexp = sprintf('/%s/', preg_quote("\"$token\"", '/'));
       $token_subject = preg_replace($regexp, $value, $token_subject);
     }
-    $regexp = sprintf('/%s/', preg_quote($token), '/');
+    $regexp = sprintf('/%s/', preg_quote($token, '/'));
     return preg_replace($regexp, $value, $token_subject);
   }
 
@@ -243,7 +245,7 @@ class JsonPathReplacer {
    *   The subrequest that contains the tokens.
    * @param string $token_location
    *   Indicates if we are dealing with body or URI replacements.
-   * @param \Symfony\Component\HttpFoundation\Response[] pool
+   * @param \Symfony\Component\HttpFoundation\Response[] $pool
    *   The collection of prior responses available for use with JSONPath.
    *
    * @returns array
@@ -256,7 +258,7 @@ class JsonPathReplacer {
       ? Json::encode($subrequest->body)
       : $subrequest->uri;
     // First find all the replacements to do. Use a regular expression to detect
-    // cases like "…{{req1.body@$.data.attributes.seasons..id}}…"
+    // cases like "…{{req1.body@$.data.attributes.seasons..id}}…".
     $found = $this->findTokens($regexp_subject);
     // Make sure that duplicated tokens in the same location are treated as the
     // same thing.
@@ -340,7 +342,7 @@ class JsonPathReplacer {
       $output[] = [
         $matches[0][$index],
         $matches[1][$index],
-        $matches[2][$index]
+        $matches[2][$index],
       ];
     }
     return $output;
@@ -353,6 +355,8 @@ class JsonPathReplacer {
    *   The structured replacement token.
    * @param \Symfony\Component\HttpFoundation\Response $subject
    *   The response object the token refers to.
+   * @param string $provided_id
+   *   The provided id.
    * @param array $token_replacements
    *   The accumulated replacements. Adds items onto the array.
    */

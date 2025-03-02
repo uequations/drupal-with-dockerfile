@@ -3,6 +3,7 @@ subrequests_test.alpha:
   defaults:
     _controller: '\Drupal\subrequests_test\Controller\TestController::alpha'
   requirements:
+    # Allowed for testing.
     _access: 'TRUE'
 
 subrequests_test.bravo:
@@ -10,4 +11,5 @@ subrequests_test.bravo:
   defaults:
     _controller: '\Drupal\subrequests_test\Controller\TestController::bravo'
   requirements:
+    # Allowed for testing.
     _access: 'TRUE'

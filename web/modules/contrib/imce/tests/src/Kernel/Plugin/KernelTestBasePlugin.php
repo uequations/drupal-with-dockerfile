@@ -109,12 +109,12 @@ abstract class KernelTestBasePlugin extends KernelTestBase {
   }
 
   /**
-   * Get plugins definations.
+   * Get plugins definition.
    *
    * @return array
-   *   Return plugins definations.
+   *   Return plugins definition.
    */
-  public function getPluginDefinations() {
+  public function getPluginDefinitions() {
     return [
       "field_types" => [
         0 => "text_with_summary",
@@ -134,8 +134,8 @@ abstract class KernelTestBasePlugin extends KernelTestBase {
    *   uri.
    */
   protected function getTestFileUri() {
-    \Drupal::service('file_system')->copy(
-      \Drupal::service('extension.list.module')->getPath('imce') . '/tests/files/ciandt.jpg',
+    Imce::service('file_system')->copy(
+      Imce::service('extension.list.module')->getPath('imce') . '/tests/files/ciandt.jpg',
       PublicStream::basePath()
     );
     return 'public://ciandt.jpg';

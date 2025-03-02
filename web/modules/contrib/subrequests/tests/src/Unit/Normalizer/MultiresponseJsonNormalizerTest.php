@@ -14,16 +14,23 @@ use Symfony\Component\HttpFoundation\Response;
 class MultiresponseJsonNormalizerTest extends UnitTestCase {
 
   /**
+   * Json multi response normalizer.
+   *
    * @var \Drupal\subrequests\Normalizer\MultiresponseJsonNormalizer
    */
   protected $sut;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->sut = new MultiresponseJsonNormalizer();
   }
 
   /**
+   * Test for supportsNormalization method.
+   *
    * @dataProvider dataProviderSupportsNormalization
    * @covers ::supportsNormalization
    */
@@ -32,7 +39,10 @@ class MultiresponseJsonNormalizerTest extends UnitTestCase {
     $this->assertSame($is_supported, $actual);
   }
 
-  public function dataProviderSupportsNormalization() {
+  /**
+   * Data provider for testSupportsNormalization.
+   */
+  public static function dataProviderSupportsNormalization(): array {
     return [
       [[new Response('')], 'json', TRUE],
       [[], 'json', FALSE],
@@ -43,6 +53,8 @@ class MultiresponseJsonNormalizerTest extends UnitTestCase {
   }
 
   /**
+   * Test for normalize method.
+   *
    * @covers ::normalize
    */
   public function testNormalize() {

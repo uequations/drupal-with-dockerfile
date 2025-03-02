@@ -14,16 +14,23 @@ use Symfony\Component\HttpFoundation\Response;
 class JsonPathReplacerTest extends UnitTestCase {
 
   /**
+   * Json path replacer service.
+   *
    * @var \Drupal\subrequests\JsonPathReplacer
    */
   protected $sut;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->sut = new JsonPathReplacer();
   }
 
   /**
+   * Test for replaceBatch method.
+   *
    * @covers ::replaceBatch
    */
   public function testReplaceBatch() {
@@ -74,6 +81,8 @@ class JsonPathReplacerTest extends UnitTestCase {
   }
 
   /**
+   * Test for replaceBatchSplit method.
+   *
    * @covers ::replaceBatch
    */
   public function testReplaceBatchSplit() {
@@ -114,6 +123,8 @@ class JsonPathReplacerTest extends UnitTestCase {
   }
 
   /**
+   * Test for replaceBatchTypes method.
+   *
    * @covers ::replaceBatch
    */
   public function testReplaceBatchTypes() {

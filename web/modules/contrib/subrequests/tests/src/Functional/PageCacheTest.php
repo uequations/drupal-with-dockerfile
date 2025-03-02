@@ -77,10 +77,10 @@ class PageCacheTest extends BrowserTestBase {
     $this->assertCount(2, $responses);
     // The first response should say Alfa and be a cache hit.
     $this->assertStringContainsString('Alfa', $responses[0]);
-    $this->assertRegExp('/X-Drupal-Cache:\s+HIT/', $responses[0]);
+    $this->assertMatchesRegularExpression('/X-Drupal-Cache:\s+HIT/', $responses[0]);
     // The second response should say Brava and be a cache miss.
     $this->assertStringContainsString('Brava!', $responses[1]);
-    $this->assertRegExp('/X-Drupal-Cache:\s+MISS/', $responses[1]);
+    $this->assertMatchesRegularExpression('/X-Drupal-Cache:\s+MISS/', $responses[1]);
   }
 
   /**

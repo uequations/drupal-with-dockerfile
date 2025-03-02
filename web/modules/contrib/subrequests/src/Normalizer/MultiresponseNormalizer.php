@@ -13,7 +13,7 @@ class MultiresponseNormalizer implements NormalizerInterface {
   /**
    * {@inheritdoc}
    */
-  public function normalize($object, $format = NULL, array $context = []) {
+  public function normalize($object, $format = NULL, array $context = []): array|bool|string|int|float|null|\ArrayObject {
     $delimiter = md5(microtime());
 
     // Prepare the root content type header.
@@ -44,7 +44,7 @@ class MultiresponseNormalizer implements NormalizerInterface {
   /**
    * {@inheritdoc}
    */
-  public function supportsNormalization($data, $format = NULL) {
+  public function supportsNormalization($data, $format = NULL, $context = []): bool {
     if ($format !== 'multipart-related') {
       return FALSE;
     }

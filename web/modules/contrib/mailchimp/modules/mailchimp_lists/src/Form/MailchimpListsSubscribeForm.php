@@ -4,9 +4,9 @@ namespace Drupal\mailchimp_lists\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\mailchimp_lists\Plugin\Field\FieldFormatter\MailchimpListsFieldSubscribeFormatter;
 use Drupal\mailchimp_lists\Plugin\Field\FieldType\MailchimpListsSubscription;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Subscribe to a Mailchimp list/audience.

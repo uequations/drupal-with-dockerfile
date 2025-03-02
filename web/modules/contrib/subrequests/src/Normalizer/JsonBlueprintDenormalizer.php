@@ -11,9 +11,9 @@ use JsonSchema\Validator;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
+use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerAwareInterface;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Component\Serializer\Serializer;
 
 /**
  * Denormalizer that builds the blueprint based on the incoming blueprint.
@@ -21,6 +21,8 @@ use Symfony\Component\Serializer\Serializer;
 class JsonBlueprintDenormalizer implements DenormalizerInterface, SerializerAwareInterface {
 
   /**
+   * The serializer service.
+   *
    * @var \Symfony\Component\Serializer\Serializer
    */
   protected $serializer;
@@ -41,6 +43,9 @@ class JsonBlueprintDenormalizer implements DenormalizerInterface, SerializerAwar
    */
   protected $validator;
 
+  /**
+   * {@inheritDoc}
+   */
   public function __construct(LoggerInterface $logger) {
     $this->logger = $logger;
   }
@@ -60,7 +65,7 @@ class JsonBlueprintDenormalizer implements DenormalizerInterface, SerializerAwar
   /**
    * {@inheritdoc}
    */
-  public function setSerializer(SerializerInterface $serializer) {
+  public function setSerializer(SerializerInterface $serializer): void {
     if (!is_a($serializer, Serializer::class)) {
       throw new \ErrorException('Serializer is unable to normalize or denormalize.');
     }
@@ -70,7 +75,7 @@ class JsonBlueprintDenormalizer implements DenormalizerInterface, SerializerAwar
   /**
    * {@inheritdoc}
    */
-  public function denormalize($data, $class, $format = NULL, array $context = []) {
+  public function denormalize($data, $class, $format = NULL, array $context = []): mixed {
     $this->doValidateInput($data);
     $data = array_map([$this, 'fillDefaults'], $data);
     $subrequests = array_map(function ($item) {
@@ -82,7 +87,7 @@ class JsonBlueprintDenormalizer implements DenormalizerInterface, SerializerAwar
   /**
    * {@inheritdoc}
    */
-  public function supportsDenormalization($data, $type, $format = NULL) {
+  public function supportsDenormalization($data, $type, $format = NULL, array $context = []): bool {
     return $format === 'json'
       && $type === SubrequestsTree::class
       && is_array($data)
@@ -170,14 +175,13 @@ class JsonBlueprintDenormalizer implements DenormalizerInterface, SerializerAwar
     return $raw_item;
   }
 
-
   /**
    * Wraps validation in an assert to prevent execution in production.
    *
    * @see self::validateInput
    */
   public function doValidateInput($input) {
-    if (PHP_MAJOR_VERSION >= 7 || assert_options(ASSERT_ACTIVE)) {
+    if (PHP_MAJOR_VERSION >= 8) {
       assert($this->validateInput($input), 'A Subrequests blueprint failed validation (see the logs for details). Please report this in the issue queue on drupal.org');
     }
   }
@@ -224,7 +228,7 @@ class JsonBlueprintDenormalizer implements DenormalizerInterface, SerializerAwar
    * @param \Drupal\subrequests\Subrequest[] $parsed
    *   The parsed requests.
    *
-   * @return SubrequestsTree
+   * @return \Drupal\subrequests\SubrequestsTree
    *   The sequence of IDs grouped by execution order.
    */
   public function buildExecutionSequence(array $parsed) {

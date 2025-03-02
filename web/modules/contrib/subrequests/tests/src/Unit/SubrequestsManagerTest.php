@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\subrequests\Unit;
 
-use Prophecy\PhpUnit\ProphecyTrait;
 use Drupal\subrequests\JsonPathReplacer;
 use Drupal\subrequests\Normalizer\JsonSubrequestDenormalizer;
 use Drupal\subrequests\Subrequest;
@@ -10,6 +9,7 @@ use Drupal\subrequests\SubrequestsManager;
 use Drupal\subrequests\SubrequestsTree;
 use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -24,16 +24,22 @@ use Symfony\Component\Serializer\Serializer;
 class SubrequestsManagerTest extends UnitTestCase {
 
   use ProphecyTrait;
+
   /**
+   * Subrequest manager.
+   *
    * @var \Drupal\subrequests\SubrequestsManager
    */
   protected $sut;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $http_kernel = $this->prophesize(HttpKernelInterface::class);
     $http_kernel
-      ->handle(Argument::type(Request::class), HttpKernelInterface::MASTER_REQUEST)
+      ->handle(Argument::type(Request::class), HttpKernelInterface::MAIN_REQUEST)
       ->will(function ($args) {
         return new Response($args[0]->getPathInfo());
       });
@@ -49,6 +55,8 @@ class SubrequestsManagerTest extends UnitTestCase {
   }
 
   /**
+   * Test for request method.
+   *
    * @covers ::request
    */
   public function testRequest() {

@@ -5,9 +5,9 @@
  * Module file for mailchimp_campaign.
  */
 
-use Mailchimp\MailchimpCampaigns;
-use Drupal\mailchimp_campaign\Entity\MailchimpCampaign;
 use Drupal\Core\Cache\CacheBackendInterface;
+use Drupal\mailchimp_campaign\Entity\MailchimpCampaign;
+use Mailchimp\MailchimpCampaigns;
 
 /**
  * Implements hook_entity_storage_load().
@@ -70,6 +70,10 @@ function mailchimp_campaign_theme($existing, $type, $theme, $path) {
  *   Associative array of template content indexed by section IDs.
  * @param object $recipients
  *   Associative array of template values.
+ * @param object $settings
+ *   Campaign settings, as decribed in Mailchimp API.
+ * @param string $template_id
+ *   ID of template. Comes from Mailchimp.
  * @param string $campaign_id
  *   The ID of the campaign to save, if updating.
  *
@@ -90,10 +94,13 @@ function mailchimp_campaign_save_campaign(array $template, $recipients, $setting
     ];
   }
 
+  // Allow alter of template and content used in campaign.
+  \Drupal::moduleHandler()->alter('mailchimp_campaign_content', $template, $content, $campaign_id);
+
   // Test for valid list segment, if selected.
   if (isset($recipients->segment_opts)) {
     if (!isset($recipients->segment_opts->saved_segment_id)
-      || (mailchimp_test_list_segment($recipients->list_id, $recipients->segment_opts->saved_segment_id) === NULL
+      || (mailchimp_campaign_test_list_segment($recipients->list_id, $recipients->segment_opts->saved_segment_id) === NULL
         && !isset($recipients->segment_opts->match, $recipients->segment_opts->conditions))
     ) {
       return NULL;
@@ -260,6 +267,12 @@ function mailchimp_campaign_sendtestmail_campaign(MailchimpCampaign $campaign, $
 
 /**
  * Delete a Mailchimp campaign and the local entity.
+ *
+ * @param \Drupal\mailchimp_campaign\Entity\MailchimpCampaign $campaign
+ *   The Mailchimp campaign to delete.
+ *
+ * @return bool
+ *   TRUE if campaign is deleted successfully.
  */
 function mailchimp_campaign_delete_campaign(MailchimpCampaign $campaign) {
   /** @var \Mailchimp\MailchimpCampaigns $mcapi */
@@ -375,13 +388,13 @@ function mailchimp_campaign_get_template($template_id, $reset = FALSE) {
 }
 
 /**
- * Convert an array of templates into rendered content.
+ * Convert template array into rendered content.
  *
  * @param array $template
- *   Array keyed by the section name with a value of the template.
+ *   Associative array of template content indexed by section IDs.
  *
  * @return array
- *   Array of template content indexed by section ID.
+ *   Array of filtered template content indexed by section ID.
  */
 function mailchimp_campaign_render_template(array $template) {
   $content = [];
@@ -516,7 +529,7 @@ function mailchimp_campaign_get_list_segments($list_id, $type) {
  * @return int
  *   The number of subscribers contained in the segment.
  */
-function mailchimp_test_list_segment($list_id, $list_segment_id, $count = 1) {
+function mailchimp_campaign_test_list_segment($list_id, $list_segment_id, $count = 1) {
   /** @var \Mailchimp\MailchimpLists $mc_lists */
   $mc_lists = mailchimp_get_api_object('MailchimpLists');
 

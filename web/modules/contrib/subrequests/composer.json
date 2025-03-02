@@ -3,8 +3,8 @@
   "description": "Add a front controller that you can use to make subrequests.",
   "type": "drupal-module",
   "require": {
-    "galbar/jsonpath": "^1.0",
-    "drupal/core": "^8 || ^9 || ^10"
+    "drupal/core": "^10 || ^11",
+    "galbar/jsonpath": "^1.0"
   },
   "require-dev": {
     "justinrainbow/json-schema": "^5.2"

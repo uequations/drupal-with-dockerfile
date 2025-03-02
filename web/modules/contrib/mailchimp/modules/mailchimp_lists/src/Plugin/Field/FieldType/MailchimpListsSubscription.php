@@ -421,7 +421,10 @@ class MailchimpListsSubscription extends FieldItemBase {
         // collections).
         // But we only offer 1 level of depth to avoid loops.
         if ($target_definition->entityClassImplements(FieldableEntityInterface::class) && !$prefix) {
-          $options = $this->getOptionsForSubEntity($required, $field_definition, $target_definition, $target_type, $keypath, $label, $options);
+          $new_options = $this->getOptionsForSubEntity($required, $field_definition, $target_definition, $target_type, $keypath, $label, $options);
+          if ($new_options) {
+            $options = $new_options;
+          }
         }
       }
       elseif (!$required || $field_definition->isRequired() || $field_definition->isComputed()) {
@@ -501,11 +504,11 @@ class MailchimpListsSubscription extends FieldItemBase {
 
     if (strpos($mail_property, ':') !== FALSE) {
       $accessors = explode(':', $mail_property);
-      /* @var $mail_field \Drupal\Core\Field\FieldItemList */
+      /** @var \Drupal\Core\Field\FieldItemList $mail_field */
       $mail_field = $entity;
       foreach ($accessors as $accessor) {
         try {
-          $mail_field = isset($mail_field->$accessor) ? $mail_field->$accessor : NULL;
+          $mail_field = $mail_field->$accessor ?? NULL;
         }
         catch (\Exception $e) {
           $mail_field = NULL;
@@ -513,7 +516,7 @@ class MailchimpListsSubscription extends FieldItemBase {
       }
     }
     else {
-      /* @var $mail_field \Drupal\Core\Field\FieldItemList */
+      /** @var \Drupal\Core\Field\FieldItemList $mail_field */
       try {
         $mail_field = $entity->get($mail_property);
       }

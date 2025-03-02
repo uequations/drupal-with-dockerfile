@@ -36,7 +36,7 @@ An example of a blueprint could look like this:
     "requestId": "req-3",
     "uri": "/stats",
     "action": "create",
-    "body": "{\"visitor\":\"anonymoys\"}",
+    "body": "{\"visitor\":\"anonymous\"}",
     "headers": {
       "Accept": "application/json",
       "Content-Type": "application/json"
@@ -67,7 +67,7 @@ Host: example.org
 Accept: application/json
 Content-Type: application/json
 
-{"visitor":"anonymoys"}
+{"visitor":"anonymous"}
 ```
 
 ### Payload format

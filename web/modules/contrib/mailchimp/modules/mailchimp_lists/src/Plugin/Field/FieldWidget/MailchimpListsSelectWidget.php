@@ -3,7 +3,6 @@
 namespace Drupal\mailchimp_lists\Plugin\Field\FieldWidget;
 
 use Drupal\Component\Utility\Html;
-use Drupal\Core\Entity\EntityFormInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -176,7 +175,7 @@ class MailchimpListsSelectWidget extends WidgetBase {
       if ($is_default_value_widget) {
         $element['interest_groups']['#states']['visible'] = [
           ':input[name="settings[show_interest_groups]"]' => ['checked' => TRUE],
-          ':input[name="default_value_input['. $instance_name .'][0][value][subscribe]"]' => ['checked' => TRUE],
+          ':input[name="default_value_input[' . $instance_name . '][0][value][subscribe]"]' => ['checked' => TRUE],
         ];
       }
 
@@ -184,7 +183,14 @@ class MailchimpListsSelectWidget extends WidgetBase {
         $groups_default = $this->getInterestGroupsDefaults($instance);
       }
       else {
-        $groups_default = $instance->getValue()['interest_groups'] ? $instance->getValue()['interest_groups'] : [];
+        $value_array = $instance->getValue();
+        // $groups_default must be an array.
+        if (array_key_exists('interest_groups', $value_array) && is_array($value_array['interest_groups'])) {
+          $groups_default = $value_array['interest_groups'];
+        }
+        else {
+          $groups_default = [];
+        }
       }
 
       if (!empty($mc_instance_list->intgroups)) {
@@ -382,7 +388,10 @@ class MailchimpListsSelectWidget extends WidgetBase {
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     $new_values = [];
     $is_default_value_widget = $this->isDefaultValueWidget($form_state);
-    $is_new_entity = $form_state->getFormObject()->getEntity()->isNew();
+    $is_new_entity = TRUE;
+    if ($form_state->getFormObject() && method_exists($form_state->getFormObject(), 'getEntity') && $form_state->getFormObject()->getEntity()) {
+      $is_new_entity = $form_state->getFormObject()->getEntity()->isNew();
+    }
 
     foreach ($values as $delta => $value) {
       $new_values[$delta] = $value['value'];
@@ -412,7 +421,7 @@ class MailchimpListsSelectWidget extends WidgetBase {
    * @return bool
    *   TRUE if there are interests chosen on a hidden subscribe list checkbox.
    */
-  public function getSubscribeFromInterests($choices, $is_new=FALSE) {
+  public function getSubscribeFromInterests($choices, $is_new = FALSE) {
     $subscribe_from_interest_groups = $choices['subscribe'];
     $field_settings = $this->getFieldSettings();
 

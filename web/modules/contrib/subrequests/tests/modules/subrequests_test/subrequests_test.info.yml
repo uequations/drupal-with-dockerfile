@@ -5,7 +5,7 @@ description: Provides routes for functional tests of Subrequests.
 dependencies:
   - subrequests:subrequests
 
-# Information added by Drupal.org packaging script on 2024-01-11
-version: '3.0.11'
+# Information added by Drupal.org packaging script on 2024-08-06
+version: '3.0.12'
 project: 'subrequests'
-datestamp: 1704970245
+datestamp: 1722952641

@@ -16,16 +16,23 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class JsonSubrequestDenormalizerTest extends UnitTestCase {
 
   /**
+   * Json subrequest denormalizer.
+   *
    * @var \Drupal\subrequests\Normalizer\JsonSubrequestDenormalizer
    */
   protected $sut;
 
+  /**
+   * {@inheritdoc}
+   */
   public function setUp(): void {
     parent::setUp();
     $this->sut = new JsonSubrequestDenormalizer();
   }
 
   /**
+   * Test for denormalize method.
+   *
    * @covers ::denormalize
    */
   public function testDenormalize() {
@@ -50,6 +57,8 @@ class JsonSubrequestDenormalizerTest extends UnitTestCase {
   }
 
   /**
+   * Test for supportsDenormalization method.
+   *
    * @dataProvider dataProviderSupportsNormalization
    * @covers ::supportsDenormalization
    */
@@ -58,7 +67,10 @@ class JsonSubrequestDenormalizerTest extends UnitTestCase {
     $this->assertSame($is_supported, $actual);
   }
 
-  public function dataProviderSupportsNormalization() {
+  /**
+   * Data provider for testSupportsDenormalization.
+   */
+  public static function dataProviderSupportsNormalization(): array {
     $subrequest = new Subrequest([
       'requestId' => 'oof',
       'body' => ['bar' => 'foo'],

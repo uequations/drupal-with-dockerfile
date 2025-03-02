@@ -16,17 +16,18 @@ class JsonSubrequestDenormalizer implements DenormalizerInterface {
    * Denormalizes data back into an object of the given class.
    *
    * @param mixed $data
-   *   data to restore.
+   *   Data to restore.
    * @param string $class
-   *   the expected class to instantiate.
+   *   The expected class to instantiate.
    * @param string $format
-   *   format the given data was extracted from.
+   *   Format the given data was extracted from.
    * @param array $context
-   *   options available to the denormalizer.
+   *   Options available to the denormalizer.
    *
    * @return object
+   *   Return denormalized data as object.
    */
-  public function denormalize($data, $class, $format = NULL, array $context = []) {
+  public function denormalize($data, $class, $format = NULL, array $context = []): mixed {
     /** @var \Drupal\subrequests\Subrequest $data */
     $path = parse_url($data->uri, PHP_URL_PATH);
     $query = parse_url($data->uri, PHP_URL_QUERY) ?: [];
@@ -67,8 +68,7 @@ class JsonSubrequestDenormalizer implements DenormalizerInterface {
   }
 
   /**
-   * Checks whether the given class is supported for denormalization by this
-   * normalizer.
+   * Checks whether the given class is supported for denormalization.
    *
    * @param mixed $data
    *   Data to denormalize from.
@@ -76,10 +76,13 @@ class JsonSubrequestDenormalizer implements DenormalizerInterface {
    *   The class to which the data should be denormalized.
    * @param string $format
    *   The format being deserialized from.
+   * @param array $context
+   *   Options available to the denormalizer.
    *
    * @return bool
+   *   Return whether the support denormalization.
    */
-  public function supportsDenormalization($data, $type, $format = NULL) {
+  public function supportsDenormalization($data, $type, $format = NULL, array $context = []): bool {
     return $type === Request::class
       && $data instanceof Subrequest;
   }

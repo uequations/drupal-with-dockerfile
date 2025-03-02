@@ -40,6 +40,7 @@ class Subrequest {
    *
    * @var bool
    */
+  // phpcs:ignore
   public $_resolved;
 
   /**
@@ -56,6 +57,9 @@ class Subrequest {
    */
   public $action;
 
+  /**
+   * {@inheritDoc}
+   */
   public function __construct($values) {
     $this->requestId = $values['requestId'];
     $this->body = $values['body'];
@@ -66,6 +70,9 @@ class Subrequest {
     $this->action = $values['action'];
   }
 
+  /**
+   * Serialize the data.
+   */
   public function __toString() {
     return serialize($this);
   }

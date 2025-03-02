@@ -2,12 +2,9 @@
 
 namespace Drupal\mailchimp_lists\Plugin\Field\FieldWidget;
 
-use Drupal\Component\Utility\Html;
-use Drupal\Core\Entity\EntityFormInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\mailchimp_lists\Plugin\Field\FieldType\MailchimpListsSubscription;
 
 /**
  * Plugin implementation of the 'mailchimp_lists_info' widget.

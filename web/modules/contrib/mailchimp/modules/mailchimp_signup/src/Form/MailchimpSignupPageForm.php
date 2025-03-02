@@ -9,8 +9,8 @@ use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Ajax\InvokeCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
 use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\Url;
 use Drupal\mailchimp_signup\Entity\MailchimpSignup;
 
 /**
@@ -69,10 +69,20 @@ class MailchimpSignupPageForm extends FormBase {
   }
 
   /**
+   * Gets the signup service.
+   *
+   * @return \Drupal\mailchimp_signup\Entity\MailchimpSignup|null
+   *   The signup service.
+   */
+  public function getSignup() {
+    return $this->signup;
+  }
+
+  /**
    * Sets the signup service.
    *
    * @param \Drupal\mailchimp_signup\Entity\MailchimpSignup $signup
-   *   THe signup service.
+   *   The signup service.
    */
   public function setSignup(MailchimpSignup $signup) {
     $this->signup = $signup;
@@ -89,6 +99,7 @@ class MailchimpSignupPageForm extends FormBase {
    * Return an ID for the form wrapper.
    *
    * @return string
+   *   A string baaed on the form ID.
    */
   protected function getFormWrapperId() {
     return Html::getId("{$this->formId}-wrapper");

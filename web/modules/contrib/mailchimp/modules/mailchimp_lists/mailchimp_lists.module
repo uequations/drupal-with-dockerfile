@@ -5,17 +5,17 @@
  * Mailchimp lists/audiences module.
  */
 
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\TypedData\DataReferenceInterface;
 use Drupal\Core\TypedData\ListInterface;
 use Drupal\Core\TypedData\TypedDataInterface;
-use Drupal\mailchimp_lists\Plugin\Field\FieldType\MailchimpListsSubscription;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\field\Entity\FieldConfig;
+use Drupal\mailchimp_lists\Plugin\Field\FieldType\MailchimpListsSubscription;
 use Mailchimp\MailchimpLists;
 
 /**
@@ -88,7 +88,15 @@ function mailchimp_lists_form_field_ui_field_edit_form_validate(&$form, FormStat
 /**
  * Helper function to check if a valid email is configured for an entity field.
  *
- * Returns an email address or FALSE.
+ * @param \Drupal\mailchimp_lists\Plugin\Field\FieldType\MailchimpListsSubscription $instance
+ *   A mailchimp_lists_subscription field instance configuration.
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   An Entity that has the $instance field.
+ * @param bool $log_errors
+ *   Whether to log errors in the database.
+ *
+ * @return string|bool
+ *   Returns an email address if configured; otherwise FALSE.
  */
 function mailchimp_lists_load_email(MailchimpListsSubscription $instance, EntityInterface $entity, $log_errors = TRUE) {
   $merge_fields = $instance->getFieldDefinition()->getSetting('merge_fields');
@@ -203,6 +211,8 @@ function mailchimp_lists_process_subscribe_form_choices(array $choices, Mailchim
 
     $interests = $choices['interest_groups'] ?? [];
 
+    \Drupal::moduleHandler()->alter('mailchimp_lists_interest_groups', $interests, $entity, $choices);
+
     switch ($function) {
       case 'add':
         $ret = mailchimp_subscribe($settings['mc_list_id'], $email, $mergevars, $interests, $settings['double_opt_in']);
@@ -234,7 +244,18 @@ function mailchimp_lists_process_subscribe_form_choices(array $choices, Mailchim
  * subscriptions. If we don't do this, we send an update to mailchimp every time
  * an entity is updated.
  *
- * returns bool
+ * @param \Drupal\mailchimp_lists\Plugin\Field\FieldType\MailchimpListsSubscription $instance
+ *   A mailchimp_lists_subscription field instance configuration.
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   An Entity that has the $instance field.
+ * @param string $email
+ *   The email address associated with the subcsription.
+ * @param array $choices
+ *   An array representing the form values selected.
+ *
+ * @return bool
+ *   TRUE if the subscription has changed, based on interest groups and merge
+ *   values.
  */
 function _mailchimp_lists_subscription_has_changed(MailchimpListsSubscription $instance, EntityInterface $entity, $email, $choices) {
   $settings = $instance->getFieldDefinition()->getSettings();
@@ -346,6 +367,14 @@ function _mailchimp_lists_subscription_has_changed(MailchimpListsSubscription $i
 /**
  * Helper function to complete a mailchimp-api-ready mergevars array.
  *
+ * @param array $merge_fields
+ *   An array representing the form values selected.
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   An Entity that has the subscription field.
+ *
+ * @return array
+ *   An array of merge field values keyed on merge field name.
+ *
  * @see \Drupal\ctools\TypedDataResolver::getContextFromProperty()
  */
 function _mailchimp_lists_mergevars_populate($merge_fields, EntityInterface $entity) {
@@ -413,6 +442,15 @@ function _mailchimp_lists_mergevars_populate($merge_fields, EntityInterface $ent
 
 /**
  * Triggers an update of all merge field values for appropriate entities.
+ *
+ * Updates member merge data at Mailchimp based on local values.
+ *
+ * @param string $entity_type
+ *   The type of entity with the MailchimpListsSubscription field.
+ * @param string $bundle_name
+ *   The bundle with the MailchimpListsSubscription field.
+ * @param string $field_name
+ *   The name of the MailchimpListsSubscription field.
  */
 function mailchimp_lists_update_member_merge_values($entity_type, $bundle_name, $field_name) {
   $field = FieldConfig::loadByName($entity_type, $bundle_name, $field_name);
@@ -422,7 +460,7 @@ function mailchimp_lists_update_member_merge_values($entity_type, $bundle_name, 
   $merge_fields = $field->getSetting('merge_fields');
 
   // Assemble a list of current subscription statuses so we don't alter them.
-  // Because of cacheing we don't want to use the standard checks. Expiring the
+  // Because of caching we don't want to use the standard checks. Expiring the
   // cache would kill the point of doing this as a batch API operation.
   $batch = [
     'operations' => [
@@ -503,7 +541,7 @@ function mailchimp_lists_populate_member_batch($entity_type, $bundle_name, $fiel
     $context['sandbox']['max'] = isset($query_results) ? count($query_results) : 0;
 
     if ($context['sandbox']['max']) {
-      $context['sandbox']['entity_ids'] = array_keys($query_results);
+      $context['sandbox']['entity_ids'] = $query_results;
       $context['results']['update_queue'] = [];
     }
   }

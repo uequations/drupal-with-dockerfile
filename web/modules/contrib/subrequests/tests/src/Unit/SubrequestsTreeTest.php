@@ -13,6 +13,8 @@ use Drupal\Tests\UnitTestCase;
 class SubrequestsTreeTest extends UnitTestCase {
 
   /**
+   * Test for stack method.
+   *
    * @dataProvider dataProviderStack
    * @covers ::stack
    * @covers ::getLowestLevel
@@ -22,10 +24,13 @@ class SubrequestsTreeTest extends UnitTestCase {
     $sut = new SubrequestsTree();
     $sut->stack($input);
     $this->assertSame(1, $sut->getNumLevels());
-    $this->assertSame($expected_count, count($sut->getLowestLevel()));
+    $this->assertCount($expected_count, $sut->getLowestLevel());
   }
 
-  public function dataProviderStack() {
+  /**
+   * Data provider for testSupportsNormalization.
+   */
+  public static function dataProviderStack(): array {
     $defaults = [
       'requestId' => 1,
       'body' => '',

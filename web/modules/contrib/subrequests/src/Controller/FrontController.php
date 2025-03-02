@@ -4,12 +4,9 @@ namespace Drupal\subrequests\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\subrequests\Blueprint\BlueprintManager;
-use Drupal\subrequests\Blueprint\Parser;
-use Drupal\subrequests\Blueprint\RequestTree;
 use Drupal\subrequests\SubrequestsManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * Front controller to process Subrequests requests.
@@ -17,11 +14,15 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 class FrontController extends ControllerBase {
 
   /**
+   * Blueprint manager.
+   *
    * @var \Drupal\subrequests\Blueprint\BlueprintManager
    */
   protected $blueprintManager;
 
   /**
+   * Subrequest manager.
+   *
    * @var \Drupal\subrequests\SubrequestsManager
    */
   protected $subrequestsManager;
