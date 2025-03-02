@@ -33,6 +33,7 @@
         "drupal/jsonapi_views": "^1.1",
         "drupal/ludwig": "^2.0",
         "drupal/mailchimp": "^2.2",
+        "drupal/metatag": "^2.1",
         "drupal/next": "^1.6",
         "drupal/porto_theme": "^1.5",
         "drupal/redis": "^1.7",

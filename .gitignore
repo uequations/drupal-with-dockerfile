@@ -1,3 +1,46 @@
 .ddev/
 .editorconfig
 .gitattributes
+composer.lock
+
+# Composer dependencies
+/vendor/
+
+# Environment variables
+.env
+
+# PHPStorm project files
+.idea/
+
+# Laravel specific
+/storage/
+/bootstrap/cache/
+
+# Symfony specific
+/var/
+/vendor/
+/.env.local
+/.env.local.php
+/.env.*.local
+
+# Logs and temp files
+*.log
+*.cache
+*.tmp
+
+# PHPUnit
+.phpunit.result.cache
+
+# Vagrant
+.vagrant/
+
+# IDE and editor files
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
