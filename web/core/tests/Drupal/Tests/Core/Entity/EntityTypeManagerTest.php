@@ -452,7 +452,7 @@ class EntityTypeManagerTest extends UnitTestCase {
    * @return string
    *   A mock controller class name.
    */
-  protected function getTestHandlerClass(): string {
+  protected function getTestHandlerClass() {
     return get_class($this->getMockForAbstractClass(EntityHandlerBase::class));
   }
 

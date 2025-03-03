@@ -11,6 +11,7 @@ use Drupal\Core\Url;
  * JSON:API integration test for the "EntityViewMode" config entity type.
  *
  * @group jsonapi
+ * @group #slow
  */
 class EntityViewModeTest extends ConfigEntityResourceTestBase {
 

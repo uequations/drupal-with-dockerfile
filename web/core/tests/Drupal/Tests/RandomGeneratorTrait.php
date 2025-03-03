@@ -69,7 +69,7 @@ trait RandomGeneratorTrait {
    *
    * @see \Drupal\Component\Utility\Random::name()
    */
-  protected function randomMachineName($length = 8): string {
+  protected function randomMachineName($length = 8) {
     return Random::machineName($length);
   }
 

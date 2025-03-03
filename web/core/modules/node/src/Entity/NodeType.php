@@ -2,10 +2,8 @@
 
 namespace Drupal\node\Entity;
 
-use Drupal\Core\Config\Action\Attribute\ActionMethod;
 use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
 use Drupal\Core\Entity\EntityStorageInterface;
-use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\NodeTypeInterface;
 
 /**
@@ -130,7 +128,6 @@ class NodeType extends ConfigEntityBundleBase implements NodeTypeInterface {
   /**
    * {@inheritdoc}
    */
-  #[ActionMethod(adminLabel: new TranslatableMarkup('Automatically create new revisions'), pluralize: FALSE)]
   public function setNewRevision($new_revision) {
     $this->new_revision = $new_revision;
   }
@@ -145,7 +142,6 @@ class NodeType extends ConfigEntityBundleBase implements NodeTypeInterface {
   /**
    * {@inheritdoc}
    */
-  #[ActionMethod(adminLabel: new TranslatableMarkup('Set whether to display submission information'), pluralize: FALSE)]
   public function setDisplaySubmitted($display_submitted) {
     $this->display_submitted = $display_submitted;
   }
@@ -160,7 +156,6 @@ class NodeType extends ConfigEntityBundleBase implements NodeTypeInterface {
   /**
    * {@inheritdoc}
    */
-  #[ActionMethod(adminLabel: new TranslatableMarkup('Set preview mode'), pluralize: FALSE)]
   public function setPreviewMode($preview_mode) {
     $this->preview_mode = $preview_mode;
   }

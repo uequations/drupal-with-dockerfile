@@ -168,24 +168,24 @@ class Diff {
   public function check($from_lines, $to_lines) {
     @trigger_error(__METHOD__ . '() is deprecated in drupal:10.1.0 and is removed from drupal:11.0.0. There is no replacement. See https://www.drupal.org/node/3337942', E_USER_DEPRECATED);
     if (serialize($from_lines) != serialize($this->orig())) {
-      trigger_error("Reconstructed original doesn't match", E_USER_WARNING);
+      trigger_error("Reconstructed original doesn't match", E_USER_ERROR);
     }
     if (serialize($to_lines) != serialize($this->closing())) {
-      trigger_error("Reconstructed closing doesn't match", E_USER_WARNING);
+      trigger_error("Reconstructed closing doesn't match", E_USER_ERROR);
     }
 
     $rev = $this->reverse();
     if (serialize($to_lines) != serialize($rev->orig())) {
-      trigger_error("Reversed original doesn't match", E_USER_WARNING);
+      trigger_error("Reversed original doesn't match", E_USER_ERROR);
     }
     if (serialize($from_lines) != serialize($rev->closing())) {
-      trigger_error("Reversed closing doesn't match", E_USER_WARNING);
+      trigger_error("Reversed closing doesn't match", E_USER_ERROR);
     }
 
     $prevtype = 'none';
     foreach ($this->edits as $edit) {
       if ( $prevtype == $edit->type ) {
-        trigger_error("Edit sequence is non-optimal", E_USER_WARNING);
+        trigger_error("Edit sequence is non-optimal", E_USER_ERROR);
       }
       $prevtype = $edit->type;
     }

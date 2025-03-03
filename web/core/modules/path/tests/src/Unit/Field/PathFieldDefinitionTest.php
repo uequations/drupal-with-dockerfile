@@ -15,7 +15,7 @@ class PathFieldDefinitionTest extends BaseFieldDefinitionTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function getPluginId(): string {
+  protected function getPluginId() {
     return 'path';
   }
 

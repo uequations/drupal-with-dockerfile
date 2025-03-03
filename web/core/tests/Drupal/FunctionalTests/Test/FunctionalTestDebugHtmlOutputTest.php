@@ -11,7 +11,6 @@ use Symfony\Component\Process\Process;
  * Test to ensure that functional tests produce debug HTML output when required.
  *
  * @group browsertestbase
- * @group #slow
  */
 class FunctionalTestDebugHtmlOutputTest extends BrowserTestBase {
 

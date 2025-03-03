@@ -1333,20 +1333,7 @@
       const settings = response.settings || ajax.settings || drupalSettings;
 
       // Parse response.data into an element collection.
-      const parseHTML = (htmlString) => {
-        const fragment = document.createDocumentFragment();
-        // Create a temporary div element
-        const tempDiv = fragment.appendChild(document.createElement('div'));
-
-        // Set the innerHTML of the div to the provided HTML string
-        tempDiv.innerHTML = htmlString;
-
-        // Return the contents of the temporary div
-        return tempDiv.childNodes;
-      };
-
-      let $newContent = $(parseHTML(response.data));
-
+      let $newContent = $($.parseHTML(response.data, document, true));
       // For backward compatibility, in some cases a wrapper will be added. This
       // behavior will be removed before Drupal 9.0.0. If different behavior is
       // needed, the theme functions can be overridden.
@@ -1525,7 +1512,7 @@
      *   The XMLHttpRequest status.
      */
     css(ajax, response, status) {
-      // eslint-disable-next-line no-jquery/no-css
+      // eslint-disable-next-line jquery/no-css
       $(response.selector).css(response.argument);
     },
 

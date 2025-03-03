@@ -17,6 +17,7 @@ use Drupal\user\RoleInterface;
  * Tests the display of image fields.
  *
  * @group image
+ * @group #slow
  */
 class ImageFieldDisplayTest extends ImageFieldTestBase {
 

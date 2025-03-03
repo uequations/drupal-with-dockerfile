@@ -14,6 +14,7 @@ use Drupal\user\RoleInterface;
  * Tests basic block functionality.
  *
  * @group block
+ * @group #slow
  */
 class BlockTest extends BlockTestBase {
 
@@ -576,7 +577,7 @@ class BlockTest extends BlockTestBase {
     $this->drupalGet('<front>');
     $this->assertSession()->pageTextNotContains('Hello test world');
 
-    \Drupal::keyValue('block_test')->set('access', TRUE);
+    \Drupal::state()->set('test_block_access', TRUE);
     $this->drupalGet('<front>');
     $this->assertSession()->pageTextContains('Hello test world');
   }

@@ -56,11 +56,7 @@ class CommentUserNameTest extends ViewsKernelTestBase {
 
     $admin_role = Role::create([
       'id' => 'admin',
-      'permissions' => [
-        'administer comments',
-        'access user profiles',
-        'access comments',
-      ],
+      'permissions' => ['administer comments', 'access user profiles'],
       'label' => 'Admin',
     ]);
     $admin_role->save();
@@ -181,11 +177,8 @@ class CommentUserNameTest extends ViewsKernelTestBase {
     $this->assertNoLink($this->adminUser->label());
     // Note: External users aren't pointing to drupal user profiles.
     $this->assertLink('barry (not verified)');
-    // Anonymous user does not have access to this link but can still see title.
-    $this->assertText('My comment title');
-    $this->assertNoLink('My comment title');
-    $this->assertText('Anonymous comment title');
-    $this->assertNoLink('Anonymous comment title');
+    $this->assertLink('My comment title');
+    $this->assertLink('Anonymous comment title');
   }
 
 }

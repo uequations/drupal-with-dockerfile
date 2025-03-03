@@ -12,6 +12,7 @@ use Drupal\Core\Url;
  * JSON:API integration test for the "Block" config entity type.
  *
  * @group jsonapi
+ * @group #slow
  */
 class BlockTest extends ConfigEntityResourceTestBase {
 

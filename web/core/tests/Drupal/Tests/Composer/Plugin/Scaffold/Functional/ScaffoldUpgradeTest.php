@@ -116,7 +116,7 @@ class ScaffoldUpgradeTest extends TestCase {
    * @return string
    *   Path to temporary git repository.
    */
-  protected function createTmpRepo($source, $destParent, $version): string {
+  protected function createTmpRepo($source, $destParent, $version) {
     $target = $destParent . '/' . basename($source);
     $filesystem = new Filesystem();
     $filesystem->copy($source, $target);

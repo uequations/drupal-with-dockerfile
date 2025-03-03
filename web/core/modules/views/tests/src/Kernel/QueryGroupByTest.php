@@ -14,6 +14,7 @@ use Drupal\views\Views;
  * Tests aggregate functionality of views, for example count.
  *
  * @group views
+ * @group #slow
  */
 class QueryGroupByTest extends ViewsKernelTestBase {
 

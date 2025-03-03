@@ -166,9 +166,7 @@ class ChainedFastBackend implements CacheBackendInterface, CacheTagsInvalidatorI
     if ($cids) {
       foreach ($this->consistentBackend->getMultiple($cids, $allow_invalid) as $item) {
         $cache[$item->cid] = $item;
-        if (!$allow_invalid || $item->valid) {
-          $this->fastBackend->set($item->cid, $item->data, $item->expire, $item->tags);
-        }
+        $this->fastBackend->set($item->cid, $item->data, $item->expire, $item->tags);
       }
     }
 

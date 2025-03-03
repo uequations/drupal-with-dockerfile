@@ -11,6 +11,7 @@ use Drupal\workflows\Entity\Workflow;
  * JSON:API integration test for the "Workflow" config entity type.
  *
  * @group jsonapi
+ * @group #slow
  */
 class WorkflowTest extends ConfigEntityResourceTestBase {
 

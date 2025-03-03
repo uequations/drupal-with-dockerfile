@@ -10,7 +10,6 @@ use Drupal\FunctionalTests\Installer\InstallerTestBase;
  * Tests the multilingual installer installing the Umami profile.
  *
  * @group Installer
- * @group #slow
  */
 class UmamiMultilingualInstallTest extends InstallerTestBase {
 
@@ -54,7 +53,7 @@ class UmamiMultilingualInstallTest extends InstallerTestBase {
    * @return string
    *   Contents for the test .po file.
    */
-  protected function getPo($langcode): string {
+  protected function getPo($langcode) {
     return <<<PO
 msgid ""
 msgstr ""

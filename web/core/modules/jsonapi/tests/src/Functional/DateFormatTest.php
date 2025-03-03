@@ -11,6 +11,7 @@ use Drupal\Core\Url;
  * JSON:API integration test for the "DateFormat" config entity type.
  *
  * @group jsonapi
+ * @group #slow
  */
 class DateFormatTest extends ConfigEntityResourceTestBase {
 

@@ -536,7 +536,7 @@ JS;
    *
    * @see Drupal\Component\Utility\Html::escape()
    */
-  protected function escapeHtml($raw): string {
+  protected function escapeHtml($raw) {
     return htmlspecialchars($raw, ENT_NOQUOTES | ENT_SUBSTITUTE, 'UTF-8');
   }
 

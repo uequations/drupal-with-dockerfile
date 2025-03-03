@@ -15,6 +15,7 @@ use Drupal\user\RoleInterface;
  * Tests the revisions of media entities.
  *
  * @group media
+ * @group #slow
  */
 class MediaRevisionTest extends MediaFunctionalTestBase {
 

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Drupal\KernelTests;
 
 use Drupal\Component\Serialization\Json;
@@ -60,11 +58,11 @@ trait AssertContentTrait {
    *   The raw content to set.
    */
   protected function setRawContent($content) {
-    $this->content = (string) $content;
+    $this->content = $content;
     $this->plainTextContent = NULL;
     $this->elements = NULL;
     $this->drupalSettings = [];
-    if (preg_match('@<script type="application/json" data-drupal-selector="drupal-settings-json">([^<]*)</script>@', (string) $content, $matches)) {
+    if (preg_match('@<script type="application/json" data-drupal-selector="drupal-settings-json">([^<]*)</script>@', $content, $matches)) {
       $this->drupalSettings = Json::decode($matches[1]);
     }
   }
@@ -184,7 +182,7 @@ trait AssertContentTrait {
       $replacement = function ($matches) use ($value) {
         return $value;
       };
-      $xpath = preg_replace_callback('/' . preg_quote($placeholder, NULL) . '\b/', $replacement, $xpath);
+      $xpath = preg_replace_callback('/' . preg_quote($placeholder) . '\b/', $replacement, $xpath);
     }
     return $xpath;
   }
@@ -308,7 +306,7 @@ trait AssertContentTrait {
     // Cast MarkupInterface objects to string.
     $label = (string) $label;
     $links = $this->xpath('//a[normalize-space(text())=:label]', [':label' => $label]);
-    $message = $message ?: "Link with label $label not found.";
+    $message = ($message ? $message : new FormattableMarkup('Link with label %label not found.', ['%label' => $label]));
     $this->assertEmpty($links, $message);
     return TRUE;
   }
@@ -332,8 +330,8 @@ trait AssertContentTrait {
    */
   protected function assertLinkByHref($href, $index = 0, $message = '') {
     $links = $this->xpath('//a[contains(@href, :href)]', [':href' => $href]);
-    $message = $message ?: "Link containing href $href found.";
-    $this->assertArrayHasKey($index, $links, (string) $message);
+    $message = ($message ? $message : new FormattableMarkup('Link containing href %href found.', ['%href' => $href]));
+    $this->assertArrayHasKey($index, $links, $message);
     return TRUE;
   }
 
@@ -397,7 +395,7 @@ trait AssertContentTrait {
    */
   protected function assertRaw($raw, $message = ''): void {
     if (!$message) {
-      $message = 'Raw "' . Html::escape((string) $raw) . '" found';
+      $message = 'Raw "' . Html::escape($raw) . '" found';
     }
     $this->assertStringContainsString((string) $raw, $this->getRawContent(), $message);
   }
@@ -418,7 +416,7 @@ trait AssertContentTrait {
    */
   protected function assertNoRaw($raw, $message = ''): void {
     if (!$message) {
-      $message = 'Raw "' . Html::escape((string) $raw) . '" not found';
+      $message = 'Raw "' . Html::escape($raw) . '" not found';
     }
     $this->assertStringNotContainsString((string) $raw, $this->getRawContent(), $message);
   }
@@ -439,9 +437,9 @@ trait AssertContentTrait {
    */
   protected function assertEscaped($raw, $message = ''): void {
     if (!$message) {
-      $message = 'Escaped "' . Html::escape((string) $raw) . '" found';
+      $message = 'Escaped "' . Html::escape($raw) . '" found';
     }
-    $this->assertStringContainsString(Html::escape((string) $raw), $this->getRawContent(), $message);
+    $this->assertStringContainsString(Html::escape($raw), $this->getRawContent(), $message);
   }
 
   /**
@@ -460,9 +458,9 @@ trait AssertContentTrait {
    */
   protected function assertNoEscaped($raw, $message = ''): void {
     if (!$message) {
-      $message = 'Escaped "' . Html::escape((string) $raw) . '" not found';
+      $message = 'Escaped "' . Html::escape($raw) . '" not found';
     }
-    $this->assertStringNotContainsString(Html::escape((string) $raw), $this->getRawContent(), $message);
+    $this->assertStringNotContainsString(Html::escape($raw), $this->getRawContent(), $message);
   }
 
   /**
@@ -531,10 +529,10 @@ trait AssertContentTrait {
       $message = !$not_exists ? new FormattableMarkup('"@text" found', ['@text' => $text]) : new FormattableMarkup('"@text" not found', ['@text' => $text]);
     }
     if ($not_exists) {
-      $this->assertStringNotContainsString((string) $text, $this->getTextContent(), (string) $message);
+      $this->assertStringNotContainsString((string) $text, $this->getTextContent(), $message);
     }
     else {
-      $this->assertStringContainsString((string) $text, $this->getTextContent(), (string) $message);
+      $this->assertStringContainsString((string) $text, $this->getTextContent(), $message);
     }
   }
 
@@ -641,7 +639,7 @@ trait AssertContentTrait {
     if (!$message) {
       $message = new FormattableMarkup('Pattern "@pattern" found', ['@pattern' => $pattern]);
     }
-    $this->assertMatchesRegularExpression($pattern, $this->getRawContent(), (string) $message);
+    $this->assertMatchesRegularExpression($pattern, $this->getRawContent(), $message);
     return TRUE;
   }
 
@@ -710,7 +708,7 @@ trait AssertContentTrait {
           '@expected' => var_export($title, TRUE),
         ]);
       }
-      $this->assertEquals($title, $actual, (string) $message);
+      $this->assertEquals($title, $actual, $message);
     }
     else {
       $this->fail('No title element found on the page.');
@@ -770,7 +768,7 @@ trait AssertContentTrait {
       $message = '%callback rendered correctly.';
     }
     $message = new FormattableMarkup($message, ['%callback' => 'theme_' . $callback . '()']);
-    $this->assertSame($expected, $output, (string) $message);
+    $this->assertSame($expected, $output, $message);
   }
 
   /**
@@ -824,7 +822,7 @@ trait AssertContentTrait {
       }
     }
     $this->assertNotEmpty($fields);
-    $this->assertTrue($found, (string) $message);
+    $this->assertTrue($found, $message);
     return TRUE;
   }
 
@@ -910,7 +908,7 @@ trait AssertContentTrait {
       }
     }
     $this->assertNotEmpty($fields);
-    $this->assertTrue($found, (string) $message);
+    $this->assertTrue($found, $message);
     return TRUE;
   }
 

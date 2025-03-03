@@ -47,7 +47,7 @@ class InstallerTranslationMultipleLanguageNonInteractiveTest extends BrowserTest
    * @return string
    *   Contents for the test .po file.
    */
-  protected function getPo($langcode): string {
+  protected function getPo($langcode) {
     return <<<PO
 msgid ""
 msgstr ""

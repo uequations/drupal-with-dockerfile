@@ -11,6 +11,7 @@ use Drupal\Tests\BrowserTestBase;
  * Tests the tableselect form element for expected behavior.
  *
  * @group Form
+ * @group #slow
  */
 class ElementsTableSelectTest extends BrowserTestBase {
 

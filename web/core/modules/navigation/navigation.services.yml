@@ -1,6 +1,4 @@
 services:
-  _defaults:
-    autoconfigure: true
   navigation.renderer:
     class: Drupal\navigation\NavigationRenderer
     arguments:
@@ -31,5 +29,5 @@ services:
 
   navigation.user_lazy_builder:
     class: Drupal\navigation\UserLazyBuilder
-    arguments: ['@current_user']
+    arguments: ['@module_handler', '@current_user']
   Drupal\navigation\UserLazyBuilders: '@navigation.user_lazy_builder'

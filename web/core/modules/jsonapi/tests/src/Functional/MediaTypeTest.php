@@ -11,6 +11,7 @@ use Drupal\media\Entity\MediaType;
  * JSON:API integration test for the "MediaType" config entity type.
  *
  * @group jsonapi
+ * @group #slow
  */
 class MediaTypeTest extends ConfigEntityResourceTestBase {
 

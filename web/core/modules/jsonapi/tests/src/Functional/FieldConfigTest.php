@@ -15,6 +15,7 @@ use Drupal\node\Entity\NodeType;
  * JSON:API integration test for the "FieldConfig" config entity type.
  *
  * @group jsonapi
+ * @group #slow
  */
 class FieldConfigTest extends ConfigEntityResourceTestBase {
 
@@ -141,7 +142,7 @@ class FieldConfigTest extends ConfigEntityResourceTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function getExpectedUnauthorizedAccessMessage($method): string {
+  protected function getExpectedUnauthorizedAccessMessage($method) {
     return "The 'administer node fields' permission is required.";
   }
 

@@ -24,6 +24,7 @@ use Psr\Http\Message\ResponseInterface;
  * Tests binary data file upload route.
  *
  * @group jsonapi
+ * @group #slow
  */
 class FileUploadTest extends ResourceTestBase {
 
@@ -721,7 +722,7 @@ class FileUploadTest extends ResourceTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function getExpectedUnauthorizedAccessMessage($method): string {
+  protected function getExpectedUnauthorizedAccessMessage($method) {
     switch ($method) {
       case 'GET':
         return "The current user is not allowed to view this relationship. The 'view test entity' permission is required.";

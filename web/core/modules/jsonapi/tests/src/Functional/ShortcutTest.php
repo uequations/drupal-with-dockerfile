@@ -16,6 +16,7 @@ use GuzzleHttp\RequestOptions;
  * JSON:API integration test for the "Shortcut" content entity type.
  *
  * @group jsonapi
+ * @group #slow
  */
 class ShortcutTest extends ResourceTestBase {
 
@@ -151,7 +152,7 @@ class ShortcutTest extends ResourceTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function getExpectedUnauthorizedAccessMessage($method): string {
+  protected function getExpectedUnauthorizedAccessMessage($method) {
     return "The shortcut set must be the currently displayed set for the user and the user must have 'access shortcuts' AND 'customize shortcut links' permissions.";
   }
 

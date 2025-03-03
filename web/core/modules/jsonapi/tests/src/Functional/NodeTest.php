@@ -22,6 +22,7 @@ use GuzzleHttp\RequestOptions;
  * JSON:API integration test for the "Node" content entity type.
  *
  * @group jsonapi
+ * @group #slow
  */
 class NodeTest extends ResourceTestBase {
 
@@ -261,7 +262,7 @@ class NodeTest extends ResourceTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function getExpectedUnauthorizedAccessMessage($method): string {
+  protected function getExpectedUnauthorizedAccessMessage($method) {
     switch ($method) {
       case 'GET':
       case 'POST':
@@ -345,7 +346,7 @@ class NodeTest extends ResourceTestBase {
       '/data',
       ['4xx-response', 'http_response', 'node:1'],
       ['url.query_args', 'url.site', 'user.permissions'],
-      'UNCACHEABLE (request policy)',
+      FALSE,
       'MISS'
     );
 
@@ -356,7 +357,7 @@ class NodeTest extends ResourceTestBase {
     // context to be optimized away.
     $expected_cache_contexts = Cache::mergeContexts($this->getExpectedCacheContexts(), ['user']);
     $expected_cache_contexts = array_diff($expected_cache_contexts, ['user.permissions']);
-    $this->assertResourceResponse(200, FALSE, $response, $this->getExpectedCacheTags(), $expected_cache_contexts, 'UNCACHEABLE (request policy)', 'UNCACHEABLE (poor cacheability)');
+    $this->assertResourceResponse(200, FALSE, $response, $this->getExpectedCacheTags(), $expected_cache_contexts, FALSE, 'UNCACHEABLE');
   }
 
   /**
