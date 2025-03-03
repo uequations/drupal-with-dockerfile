@@ -1,0 +1,11 @@
+system.file_system_settings:
+  title: "File System"
+  route_name: system.file_system_settings
+  base_route: system.file_system_settings
+  weight: 1
+
+gcsfs.config:
+  title: "Google Cloud Storage"
+  route_name: gcsfs.config
+  base_route: system.file_system_settings
+  weight: 2

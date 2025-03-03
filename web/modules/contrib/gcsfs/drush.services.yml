@@ -1,0 +1,6 @@
+services:
+  gcsfs.metadata_refresh:
+    class: \Drupal\gcsfs\Commands\Refresh
+    arguments: ["@gcsfs.bucket_manager", "@extension.list.module"]
+    tags:
+      - { name: drush.command }

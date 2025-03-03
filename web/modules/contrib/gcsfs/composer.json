@@ -1,0 +1,23 @@
+{
+    "name": "drupal/gcsfs",
+    "description": "Provides a file system that can be used to store files in Google Cloud Storage.",
+    "type": "drupal-module",
+    "homepage": "https://www.drupal.org/project/gcsfs",
+    "authors": [
+        {
+            "name": "Scott Joudry",
+            "email": "sj@slydevil.com"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/gcsfs"
+    },
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "google/cloud-storage": "^1.33"
+    },
+    "require-dev": {
+        "drush/drush": "^10 || ^11"
+    }
+}

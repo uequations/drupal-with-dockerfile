@@ -1,0 +1,11 @@
+services:
+  gcsfs.bucket_manager:
+    class: Drupal\gcsfs\BucketManager
+    arguments: ["@config.factory", "@entity_type.manager", "@logger.factory"]
+  gcsfs.metadata_manager:
+    class: Drupal\gcsfs\MetadataManager
+    arguments: ["@cache_factory", "@database", "@datetime.time", "@lock"]
+  gcsfs.stream_wrapper:
+    class: Drupal\gcsfs\StreamWrapper\GoogleCloudStorage
+    tags:
+      - { name: stream_wrapper, scheme: gs }

@@ -1,0 +1,16 @@
+name: Google Cloud Storage File System
+description: Provides a file system that can be used to store files in Google Cloud Storage.
+type: module
+package: File System
+core_version_requirement: ^9 || ^10
+
+configure: gcsfs.config
+
+dependencies:
+  - drupal:file
+  - drupal:image
+
+# Information added by Drupal.org packaging script on 2023-07-24
+version: '1.0.0-beta4'
+project: 'gcsfs'
+datestamp: 1690223028

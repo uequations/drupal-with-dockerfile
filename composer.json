@@ -26,6 +26,7 @@
         "drupal/core-recommended": "10.3.13",
         "drupal/dropdown_language": "^4.0",
         "drupal/features": "^3.14",
+        "drupal/gcsfs": "^1.0@beta",
         "drupal/google_tag": "^2.0",
         "drupal/health_check": "^3.1",
         "drupal/imce": "^3.1",

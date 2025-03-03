@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Google Cloud Storage File System module.
+ */
+
+use Drupal\gcsfs\MetadataManagerInterface;
+
+/**
+ * Implements hook_requirements().
+ */
+function gcsfs_requirements($phase) {
+  $requirements = [];
+
+  if ($phase == 'install') {
+    if (!class_exists('\Google\Cloud\Storage\StorageClient')) {
+      $requirements['google_library'] = [
+        'description' => t('The gcsfs module requires the Google Cloud PHP library.'),
+        'severity' => REQUIREMENT_ERROR,
+      ];
+    }
+  }
+
+  return $requirements;
+}
+
+/**
+ * Implements hook_schema().
+ */
+function gcsfs_schema() {
+  $schema = [];
+ 
+  $schema['gcsfs_object_metadata'] = [
+    'description' => 'Metadata about objects in the specified Google Cloud Storage bucket.',
+    'fields' => [
+      'path' => [
+        'binary' => TRUE,
+        'description' => 'The path of the URI of the object.',
+        'type' => 'varchar',
+        'length' => MetadataManagerInterface::MAXIMUM_URI_LENGTH,
+        'not null' => TRUE,
+      ],
+      'file_size' => [
+        'description' => 'The size of the object in bytes.',
+        'type' => 'int',
+        'size' => 'big',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'directory' => [
+        'description' => 'Is the object a file (0) or a directory (1).',
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'created' => [
+        'description' => 'UNIX timestamp of when the object was created.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'indexes' => [
+      'index_created' => [
+        'created',
+      ],
+      'index_directory' => [
+        'directory',
+      ],
+    ],
+    'primary key' => [
+      'path',
+    ],
+  ];
+
+  return $schema;
+}

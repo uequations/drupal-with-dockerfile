@@ -1,0 +1,11 @@
+gcsfs.config.test:
+  route_name: gcsfs.config.test
+  title: "Test credentials"
+  appears_on:
+    - gcsfs.config
+
+gcsfs.config.refresh:
+  route_name: gcsfs.config.refresh
+  title: "Refresh metadata"
+  appears_on:
+    - gcsfs.config

@@ -1,0 +1,4 @@
+administer gcsfs:
+  title: "Administer Google Cloud Storage File System"
+  description: "Administer Google Cloud Storage File System"
+  restrict access: TRUE

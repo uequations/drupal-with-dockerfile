@@ -1,0 +1,6 @@
+# Configuration Pages:
+gcsfs.config:
+  title: "Google Cloud Storage"
+  description: "Settings for the Google Cloud Storage File System module."
+  route_name: gcsfs.config
+  parent: system.file_system_settings

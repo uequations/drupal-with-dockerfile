@@ -1,0 +1,10 @@
+gcsfs.config:
+  type: config_object
+  label: "Google cloud storage settings"
+  mapping:
+    bucket_name:
+      type: string
+      label: "The name of the bucket in Google cloud storage."
+    credentials:
+      type: string
+      label: "The Google credentials."

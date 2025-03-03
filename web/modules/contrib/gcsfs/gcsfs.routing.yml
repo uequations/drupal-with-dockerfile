@@ -1,0 +1,23 @@
+gcsfs.config:
+  path: "/admin/config/media/file-system/gscfs"
+  defaults:
+    _form: '\Drupal\gcsfs\Form\Settings'
+    _title: "Google Cloud Storage"
+  requirements:
+    _permission: "administer gcsfs"
+
+gcsfs.config.test:
+  path: "/admin/config/media/file-system/gcsfs/test"
+  defaults:
+    _controller: '\Drupal\gcsfs\Controller\Actions::test'
+    _title: "Test credentials"
+  requirements:
+    _permission: "administer gcsfs"
+
+gcsfs.config.refresh:
+  path: "/admin/config/media/file-system/gcsfs/refresh"
+  defaults:
+    _controller: '\Drupal\gcsfs\Controller\Actions::refresh'
+    _title: "Refresh metadata"
+  requirements:
+    _permission: "administer gcsfs"
