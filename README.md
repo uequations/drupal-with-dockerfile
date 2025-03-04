@@ -44,19 +44,23 @@ gcloud auth login
 ```
 
 #### Build Docker image
+Below are some examples of *docker build* commands.
 ```sh
 docker build -t ubuntu-apache-httpd-drupal-4614:v1 .
 ```
 
 ```sh
-docker build -t us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v2 .
+docker build -t us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v4 .
 ```
 #### Push Docker Build to Registry
 ```sh
-docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v2
+docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v4
 ```
 
-Once it is pushed to the registry
+### Running the Docker Image Locally
+```sh
+docker run -it us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v4
+```
 
 #### Open Interactive Bash
 ```sh
@@ -102,7 +106,12 @@ INFO: The service account running this build projects/dev-45627/serviceAccounts/
 ```
 560314436456-compute@developer.gserviceaccount.com does not have storage.objects.list access to the Google Cloud Storage bucket. Permission 'storage.objects.list' denied on resource (or it may not exist).
 ```
-
+## Memcache Default Settings
+```php
+  $settings['memcache']['servers'] = ['127.0.0.1:11211' => 'default'];
+  $settings['memcache']['bins'] = ['default' => 'default'];
+  $settings['memcache']['key_prefix'] = '';
+```
 
 ## Refences
 - https://cloud.google.com/storage/docs/access-control/iam-roles
