@@ -28,9 +28,11 @@ az webapp config set --resource-group <resource-group-name> -n <app-name> --remo
 az webapp log tail --resource-group <resource-groups> --name <app-name>
 ```
 
-## Useful Commands
+## Drupal on Docker Deployed to Azure App Services
 
-### Useful Docker Commands
+### Useful Commands
+
+#### Useful Docker Commands
 
 #### Authenticate with Google Cloud Artifact Docker Registry
 ```sh
@@ -87,8 +89,6 @@ gcloud artifacts repositories list --project=dev-45627 \
 gcloud artifacts repositories describe uequations-docker-registry  --project=dev-45627 --location=us-east4
 ```
 
-## Deployment to Google Cloud
-
 ### Service Accounts
 560314436456-compute@developer.gserviceaccount.com
 
@@ -106,7 +106,9 @@ INFO: The service account running this build projects/dev-45627/serviceAccounts/
 ```
 560314436456-compute@developer.gserviceaccount.com does not have storage.objects.list access to the Google Cloud Storage bucket. Permission 'storage.objects.list' denied on resource (or it may not exist).
 ```
-## Memcache Default Settings
+
+## Memcache
+### Memcache Default Settings
 ```php
   $settings['memcache']['servers'] = ['127.0.0.1:11211' => 'default'];
   $settings['memcache']['bins'] = ['default' => 'default'];
