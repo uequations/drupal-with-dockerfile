@@ -28,7 +28,7 @@ az webapp config set --resource-group <resource-group-name> -n <app-name> --remo
 az webapp log tail --resource-group <resource-groups> --name <app-name>
 ```
 
-## Drupal on Docker Deployed to Azure App Services
+## Drupal on Docker Deployed to Google Cloud Platform
 
 ### Useful Commands
 
