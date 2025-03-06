@@ -78,9 +78,9 @@ WORKDIR /opt/drupal
 RUN set -eux; \
 	export COMPOSER_HOME="$(mktemp -d)"; \
 	composer install; \
-	chown -R www-data:www-data web/sites web/modules web/themes; \
+	mkdir -p config/sync; \
+	chown -R www-data:www-data web/sites web/modules web/themes config/sync; \
 	rmdir /var/www/html; \
-	mkdir config/sync/ \
 	ln -sf /opt/drupal/web /var/www/html; \
 	# delete composer cache
 	rm -rf "$COMPOSER_HOME"

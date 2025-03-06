@@ -774,7 +774,8 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  */
 $settings['trusted_host_patterns'] = [
      '^uequations\.com$',
-     '^.+\.uequations\.com$'
+     '^.+\.uequations\.com$',
+     '^.+\.northamerica-northeast2\.run\.app$'
    ];
 
 /**
