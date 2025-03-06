@@ -536,7 +536,7 @@ $settings['file_public_base_url'] = $_ENV['FILE_PUBLIC_BASE_URL'];
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-# $settings['file_public_path'] = $_ENV['WEB_FILES_DIR'];
+$settings['file_public_path'] = $_ENV['WEB_FILES_DIR'];
 
 /**
  * Additional public file schemes:
