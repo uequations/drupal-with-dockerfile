@@ -250,7 +250,7 @@ $databases = [];
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-# $settings['config_sync_directory'] = '/directory/outside/webroot';
+$settings['config_sync_directory'] = '/opt/drupal/config/sync';
 
 /**
  * Settings:
@@ -309,6 +309,7 @@ $settings['hash_salt'] = '';
  * TRUE back to a FALSE!
  */
 $settings['update_free_access'] = FALSE;
+$settings['state_cache'] = TRUE;
 
 /**
  * Fallback to HTTP for Update Manager and for fetching security advisories.
@@ -771,7 +772,10 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  *
  * @see https://www.drupal.org/docs/installing-drupal/trusted-host-settings
  */
-# $settings['trusted_host_patterns'] = [];
+$settings['trusted_host_patterns'] = [
+     '^uequations\.com$',
+     '^.+\.uequations\.com$'
+   ];
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
