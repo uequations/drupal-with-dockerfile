@@ -894,3 +894,5 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 
+$settings['php_storage']['twig']['directory'] = '/opt/drupal/web/sites/default/files/web/';
+$settings['php_storage']['twig']['secret'] = $settings['hash_salt'];
