@@ -89,17 +89,20 @@
  * @endcode
  */
 
- 
 $databases['default']['default'] = array ( 
-  'database' => $_ENV['DB_NAME'],  
-  'username' => $_ENV['DB_USERNAME'],  
-  'password' => $_ENV['DB_PASSWORD'], 
-  'host' => $_ENV['DB_HOST'], 
-  'port' => $_ENV['DB_PORT'],
-  'prefix' => $_ENV['DB_PREFIX'], 
-  'driver' => 'mysql', 
-  'collation' => 'utf8mb4_general_ci', 
-  ); 
+   'database' => $_ENV['DB_NAME'],  
+   'username' => $_ENV['DB_USERNAME'],  
+   'password' => $_ENV['DB_PASSWORD'], 
+   'host' => $_ENV['DB_HOST'], 
+   'port' => $_ENV['DB_PORT'],
+   'prefix' => $_ENV['DB_PREFIX'], 
+   'driver' => 'mysql', 
+   'collation' => 'utf8mb4_general_ci', 
+   ); 
+
+   $databases['default']['default']['init_commands'] = array(
+    'isolation_level' => "SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED",
+  );
 
 /*
 $databases = [];
