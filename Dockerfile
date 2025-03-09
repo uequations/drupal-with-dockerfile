@@ -1,5 +1,4 @@
-# https://www.drupal.org/docs/system-requirements/php-requirements
-FROM us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v3
+FROM us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v4
 
 COPY . /opt/drupal
 
@@ -36,7 +35,6 @@ RUN set -eux; \
 		pdo_mysql \
 		pdo_pgsql \
 		zip \
-		php-apcu \
 	; \
 	\
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies

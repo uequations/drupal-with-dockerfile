@@ -52,11 +52,11 @@ docker build -t ubuntu-apache-httpd-drupal-4614:v1 .
 ```
 
 ```sh
-docker build -t us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v4 .
+docker build -t us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v8 .
 ```
 #### Push Docker Build to Registry
 ```sh
-docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v4
+docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v8
 ```
 
 ### Running the Docker Image Locally
