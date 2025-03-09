@@ -96,9 +96,20 @@ gcloud artifacts repositories describe uequations-docker-registry  --project=dev
 storage.objects.list => Storage Object Viewer (roles/storage.objectViewer)
 roles/logging.logwriter => Logs Writer (roles/logging.logwriter)
 
+### Copy images from one bucket to another
+
+```sh
+gsutil -m cp -r \
+  "gs://storage-4614/content/2025-03/" \
+  "gs://storage-4614/content/styles/medium/public/2025-03"
+```
+Be sure the cp command does not create a nested duplicate directory.
+
+The -m flag is to speed up the operation and the -r flage is for recursively copying the directory.
+
 ## Common Errors
 
-### Google Cloud
+### Google Cloud Errors
 ```
 INFO: The service account running this build projects/dev-45627/serviceAccounts/560314436456-compute@developer.gserviceaccount.com does not have permission to write logs to Cloud Logging. To fix this, grant the Logs Writer (roles/logging.logWriter) role to the service account.
 ```

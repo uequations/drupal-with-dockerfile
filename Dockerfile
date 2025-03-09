@@ -36,6 +36,7 @@ RUN set -eux; \
 		pdo_mysql \
 		pdo_pgsql \
 		zip \
+		php-apcu \
 	; \
 	\
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
@@ -79,7 +80,9 @@ RUN set -eux; \
 	export COMPOSER_HOME="$(mktemp -d)"; \
 	composer install; \
 	mkdir -p config/sync; \
-	chown -R www-data:www-data web/sites web/modules web/themes config/sync; \
+	mkdir -p config/private; \
+	mkdir -p web/cache; \
+	chown -R www-data:www-data web/sites web/modules web/themes web/cache config/sync config/private; \
 	rmdir /var/www/html; \
 	ln -sf /opt/drupal/web /var/www/html; \
 	# delete composer cache
