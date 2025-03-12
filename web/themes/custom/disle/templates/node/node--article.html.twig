@@ -93,7 +93,7 @@
       {% endif %}
 
       <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
-        {{ content|without('field_image','field_post_category', 'field_post_format', 'field_post_type', 'field_post_embed', 'field_post_gallery', 'comment') }}
+        {{ content|without('author_name','field_author','field_image','field_post_category', 'field_post_format', 'field_post_type', 'field_post_embed', 'field_post_gallery', 'comment') }}
       </div>
       {% if content.comment %}
         <div id="node-single-comment">

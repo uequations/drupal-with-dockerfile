@@ -35,6 +35,7 @@ RUN set -eux; \
 		pdo_mysql \
 		pdo_pgsql \
 		zip \
+		exif \
 	; \
 	\
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
@@ -63,7 +64,6 @@ RUN { \
 
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/
 
-# 2024-05-01: https://www.drupal.org/project/drupal/releases/10.2.6
 ENV DRUPAL_VERSION=10.3.13
 
 # https://github.com/docker-library/drupal/pull/259
@@ -74,6 +74,7 @@ ENV DRUPAL_VERSION=10.3.13
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 WORKDIR /opt/drupal
+
 RUN set -eux; \
 	export COMPOSER_HOME="$(mktemp -d)"; \
 	composer install; \

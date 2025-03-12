@@ -77,7 +77,7 @@ gcloud builds submit --tag="${REGION}-docker.pkg.dev/${PROJECT_ID}/uequations-do
 
 gcloud builds submit --region=us-east4 --tag="us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v0.2" .
 
-docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v2
+gcloud builds submit --region=us-east4 --config cloudbuild.yaml
 ```
 
 ```sh

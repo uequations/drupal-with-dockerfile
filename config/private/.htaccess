@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule .* - [F]
+</IfModule>
+
+<Files *>
+  Order Deny,Allow
+  Deny from all
+</Files>
+
+Options -Indexes
+
+<FilesMatch "\.(php|pl|py|jsp|asp|sh|cgi)$">
+  Order Deny,Allow
+  Deny from all
+</FilesMatch>
+
+
+
