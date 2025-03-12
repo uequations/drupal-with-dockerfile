@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   script: |
-    docker build -t us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v8 .
+    docker build -t us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v9 .
   automapSubstitutions: true
 images:
-- 'us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v8'
+- 'us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v9'

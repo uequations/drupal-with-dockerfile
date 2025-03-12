@@ -81,7 +81,8 @@ RUN set -eux; \
 	mkdir -p config/sync; \
 	mkdir -p config/private; \
 	mkdir -p web/cache; \
-	chown -R www-data:www-data web/sites web/modules web/themes web/cache config/sync config/private; \
+	mkdir -p web/content; \
+	chown -R www-data:www-data web/sites web/modules web/themes web/cache web/content config/sync config/private; \
 	rmdir /var/www/html; \
 	ln -sf /opt/drupal/web /var/www/html; \
 	# delete composer cache

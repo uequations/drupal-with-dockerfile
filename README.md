@@ -52,11 +52,11 @@ docker build -t ubuntu-apache-httpd-drupal-4614:v1 .
 ```
 
 ```sh
-docker build -t us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v8 .
+docker build -t us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v9 .
 ```
 #### Push Docker Build to Registry
 ```sh
-docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v8
+docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v9
 ```
 
 ### Running the Docker Image Locally
@@ -67,6 +67,16 @@ docker run -it us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubun
 #### Open Interactive Bash
 ```sh
 docker exec -it e706b3fa81b1 bash
+```
+
+### gcloud builds submit with cloudbuild.yaml (Make sure Artifact Registry Reader permissions are set)
+```sh
+gcloud builds submit --config=cloudbuild.yaml .
+```
+
+###
+```sh
+gcloud alpha iam policies lint-condition --expression="request.time < timestamp("2024-09-29T04:30:05.725Z")" --title=cloudbuild-connection-setup
 ```
 
 #### Useful gcloud commands
