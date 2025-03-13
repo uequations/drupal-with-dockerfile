@@ -51,17 +51,22 @@ Below are some examples of *docker build* commands.
 docker build -t ubuntu-apache-httpd-drupal-4614:v1 .
 ```
 
+ Be sure to set the $PROJECT_ID
 ```sh
-docker build -t us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v9 .
+export PROJECT_ID=$(gcloud config get-value project)
+```
+
+```sh
+docker build -t us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v9 .
 ```
 #### Push Docker Build to Registry
 ```sh
-docker push us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v9
+docker push us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v9
 ```
 
 ### Running the Docker Image Locally
 ```sh
-docker run -it us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v4
+docker run -it us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v4
 ```
 
 #### Open Interactive Bash
