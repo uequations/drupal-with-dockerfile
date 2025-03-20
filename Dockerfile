@@ -19,7 +19,6 @@ RUN set -eux; \
 		libpng-dev \
 		libpq-dev \
 		libwebp-dev \
-		libzip-dev \
 		libz-dev \
 	; \
 	\
@@ -65,6 +64,15 @@ RUN { \
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/
 
 ENV DRUPAL_VERSION=10.3.13
+
+# Copy the smoke tests script
+COPY smoke_tests.sh /usr/local/bin/smoke_tests.sh
+
+# Make the start and smoke tests scripts executable
+RUN chmod +x /usr/local/bin/smoke_tests.sh
+
+# Run smoke tests during the build
+RUN smoke_tests.sh
 
 # https://github.com/docker-library/drupal/pull/259
 # https://github.com/moby/buildkit/issues/4503

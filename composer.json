@@ -43,7 +43,6 @@
         "drupal/redis": "^1.7",
         "drupal/schema_metatag": "^3.0",
         "drupal/search_api": "^1.38",
-        "drupal/search_api_solr": "^4.3",
         "drupal/sendgrid_integration": "^2.2",
         "drupal/slick": "^3.0",
         "drupal/token_filter": "^2.2",
@@ -51,7 +50,8 @@
         "drupal/views_infinite_scroll": "^2.0",
         "drupal/webform": "^6.2",
         "drupal/xmlsitemap": "^1.5",
-        "drush/drush": "^12.5"
+        "drush/drush": "^12.5",
+        "predis/predis": "^2.3"
     },
     "conflict": {
         "drupal/drupal": "*"

@@ -896,3 +896,9 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev
 
 $settings['php_storage']['twig']['directory'] = '/opt/drupal/web/cache/';
 $settings['php_storage']['twig']['secret'] = $settings['hash_salt'];
+
+$settings['redis.connection']['interface'] = 'Predis';
+$settings['redis.connection']['host'] = 'localhost'; // or your Redis server's IP address
+$settings['redis.connection']['port'] = '6379';
+$settings['cache']['default'] = 'cache.backend.redis';
+$settings['container_yamls'][] = 'sites/default/redis.services.yml';
