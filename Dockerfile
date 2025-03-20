@@ -92,7 +92,12 @@ RUN set -eux; \
 	mkdir -p web/cache; \
 	mkdir -p web/content; \
 	chown -R www-data:www-data web/sites web/modules web/themes web/cache web/content config/sync config/private; \
-	rmdir /var/www/html; \
+	if [ -d "/var/www/html"]; then \
+		rmdir /var/www/html; \
+		echo "Existing /var/www/html directory deleted."; \
+	else \
+		echo "Directory /var/www/html does not exist. Not deleted."; \
+	fi; \
 	ln -sf /opt/drupal/web /var/www/html; \
 	# delete composer cache
 	rm -rf "$COMPOSER_HOME"
