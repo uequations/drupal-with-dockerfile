@@ -85,6 +85,7 @@ WORKDIR /opt/drupal
 
 RUN set -eux; \
 	export COMPOSER_HOME="$(mktemp -d)"; \
+	composer update; \
 	composer install; \
 	mkdir -p config/sync; \
 	mkdir -p config/private; \
