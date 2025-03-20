@@ -32,7 +32,7 @@ az webapp log tail --resource-group <resource-groups> --name <app-name>
 
 ### Useful Commands
 
-#### Useful Docker Commands
+### Useful Docker Commands
 
 #### Authenticate with Google Cloud Artifact Docker Registry
 ```sh
@@ -56,12 +56,13 @@ docker build -t ubuntu-apache-httpd-drupal-4614:v1 .
 export PROJECT_ID=$(gcloud config get-value project)
 ```
 
+#### Docker Build
 ```sh
-docker build -t us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v9 .
+docker build -t us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/drupal:v1.9-ubuntu-apache-httpd .
 ```
 #### Push Docker Build to Registry
 ```sh
-docker push us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/ubuntu-apache-httpd-drupal-4614:v9
+docker push us-east4-docker.pkg.dev/$PROJECT_ID/uequations-docker-registry/drupal:v1.9-ubuntu-apache-httpd
 ```
 
 ### Running the Docker Image Locally

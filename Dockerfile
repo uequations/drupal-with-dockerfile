@@ -1,4 +1,4 @@
-FROM us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/ubuntu-apache-httpd-php:v4
+FROM us-east4-docker.pkg.dev/dev-45627/uequations-docker-registry/php:v4-ubuntu-apache-httpd
 
 COPY . /opt/drupal
 

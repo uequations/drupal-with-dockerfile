@@ -51,7 +51,7 @@ gavias_sliderlayer.assets.frontend:
     theme:
       vendor/revolution/css/settings.css: {}
   js:
-    vendor/revolution/js/jquery.themepunch.tools.min.js: {}
+    vendor/revolution/js/jquery.themepunch.tools.min.js: { attributes:  { defer: true } }
     vendor/revolution/js/jquery.themepunch.revolution.min.js: {}
     vendor/revolution/js/extensions/revolution.extension.actions.min.js: {}
     vendor/revolution/js/extensions/revolution.extension.carousel.min.js: {}

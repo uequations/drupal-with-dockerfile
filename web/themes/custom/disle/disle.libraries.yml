@@ -3,7 +3,7 @@ global-styling:
   header: true
   css:
     theme:
-      //fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap: { type: external } 
+      //fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap: { type: external, attributes: { rel: preload, as: style, onload: "this.onload=null;this.rel='stylesheet'" } }
       assets/css/font-awesome/css/all.min.css: {}
       assets/css/icon/style.css: {}
       assets/css/icon.css: {}
